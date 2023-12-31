@@ -23,15 +23,12 @@ export default function Reveal({ children, className }: RevealProps) {
       className={twMerge("relative", className)}
       animate={animation}
       initial="hidden"
+      transition={{ duration: 0.6, ease: "easeInOut", delay: 0.25 }}
       variants={{
         visible: {
           opacity: 1,
           y: 0,
           filter: "blur(0px)",
-          transition: {
-            duration: 0.6,
-            ease: "easeOut",
-          },
         },
         hidden: {
           opacity: 0,

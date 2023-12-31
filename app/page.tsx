@@ -5,6 +5,57 @@ import Button from "@/components/buttons/button";
 import Image from "next/image";
 import { EnvelopeIcon } from "@heroicons/react/16/solid";
 
+const WorkProjects = [
+  {
+    name: "Listr",
+    link: "https://listr.app",
+    description:
+      "The ultimate platform for trading card game enthusiasts. Built with Next.js, TypeScript, Firebase, and Stripe.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Firebase",
+      "Tailwind CSS",
+      "Stripe",
+      "GCP",
+      "Typesense",
+    ],
+    githubUrl: "",
+  },
+  {
+    name: "Qortor",
+    link: "https://Qortor.com",
+    description: "The future of creators marketplace.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "MongoDB",
+      "Styled Components",
+      "Stripe",
+      "Shopify",
+      "Vercel",
+    ],
+    githubUrl: "",
+  },
+  {
+    name: "DomumGym",
+    link: "https://domumgym.com",
+    description:
+      "The ultimate destination for your online gym experience. Connect with fellow enthusiasts, explore trainers and workouts to commit to.",
+    technologies: ["React", "Javascript", "Firebase", "Stripe"],
+    githubUrl: "",
+  },
+
+  {
+    name: "lockr",
+    link: "https://lockr.social",
+    description:
+      "A social media platform for sharing and discovering new music. Built with Next.js, TypeScript, and Firebase.",
+    technologies: ["Next.js", "TypeScript", "Firebase"],
+    githubUrl: "",
+  },
+];
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
@@ -43,7 +94,31 @@ export default function Home() {
 
       <section data-name="skills" className=""></section>
       <section data-name="education" className=""></section>
-      <section data-name="experience" className=""></section>
+      <section data-name="experience" className="">
+        {WorkProjects.map((project) => (
+          <Reveal className="flex flex-col sm:flex-row items-center gap-x-20 p-4 sm:px-10 lg:px-20 h-dvh">
+            <Image
+              src={`/images/${project.name}.png`}
+              alt={project.name}
+              className="rounded-full p-4 w-full sm:w-1/3 flex-none"
+              width={500}
+              height={500}
+            />
+            <div className="flex flex-col gap-4">
+              <h1 className="text-6xl sm:text-8xl font-bold">{project.name}</h1>
+              <h2 className="text-2xl sm:text-4xl font-thin">
+                {project.description}
+              </h2>
+              <p className="text-xl sm:text-2xl font-thin">
+                {project.technologies.join(", ")}
+              </p>
+              <Button variant="primary" className="px-5 text-xl w-fit mt-4">
+                Check it out!
+              </Button>
+            </div>
+          </Reveal>
+        ))}
+      </section>
       <section data-name="projects" className=""></section>
       <section data-name="testimonials" className=""></section>
       <Reveal
