@@ -42,7 +42,15 @@ const WorkProjects = [
     link: "https://domumgym.com",
     description:
       "The ultimate destination for your online gym experience. Connect with fellow enthusiasts, explore trainers and workouts to commit to.",
-    technologies: ["React", "Javascript", "Firebase", "Stripe"],
+    technologies: ["React", "Javascript", "Firebase", "Stripe", "Bootstrap"],
+    githubUrl: "",
+  },
+  {
+    name: "Fulfillment By Amazon Shopify App",
+    link: "https://google.com",
+    description:
+      "The ultimate destination for your online gym experience. Connect with fellow enthusiasts, explore trainers and workouts to commit to.",
+    technologies: ["React", "Javascript", "MongoDB", "Shopify"],
     githubUrl: "",
   },
 
