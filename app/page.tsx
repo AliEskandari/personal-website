@@ -19,6 +19,7 @@ const WorkProjects = [
       "Stripe",
       "GCP",
       "Typesense",
+      "Docker",
     ],
     githubUrl: "",
   },
@@ -46,20 +47,42 @@ const WorkProjects = [
     githubUrl: "",
   },
   {
-    name: "Fulfillment By Amazon Shopify App",
+    name: "Dojo Apps",
     link: "https://google.com",
     description:
       "The ultimate destination for your online gym experience. Connect with fellow enthusiasts, explore trainers and workouts to commit to.",
     technologies: ["React", "Javascript", "MongoDB", "Shopify"],
     githubUrl: "",
   },
-
+  {
+    name: "Booz Allen Hamilton",
+    link: "https://boozallen.com",
+    description:
+      "A social media platform for sharing and discovering new music. Built with Next.js, TypeScript, and Firebase.",
+    technologies: [
+      "Ember.js",
+      "Javascript",
+      "MySQL",
+      "Ruby on Rails",
+      "AWS",
+      "Docker",
+      "Elasticsearch",
+    ],
+    githubUrl: "",
+  },
   {
     name: "lockr",
     link: "https://lockr.social",
     description:
       "A social media platform for sharing and discovering new music. Built with Next.js, TypeScript, and Firebase.",
-    technologies: ["Next.js", "TypeScript", "Firebase"],
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Firebase",
+      "Tailwind CSS",
+      "Docker",
+      "GCP",
+    ],
     githubUrl: "",
   },
 ];
