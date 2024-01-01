@@ -197,7 +197,7 @@ export default function Home() {
             </div>
             <div className="flex flex-col gap-4">
               <h1 className="flex gap-4 items-center text-6xl sm:text-8xl font-bold">
-                <Underline>{project.name}</Underline>
+                {project.name}
               </h1>
               <h2 className="text-2xl sm:text-4xl font-thin">
                 {project.description}
@@ -255,9 +255,9 @@ export default function Home() {
         <section data-name="resume" className=""></section>
       </main>
       <motion.div
-        className="fixed top-0 left-0 right-0 h-2 origin-[0%] bg-violet-500"
+        className="fixed right-0 top-0 bottom-0 w-2 origin-top-right bg-violet-500"
         style={{
-          scaleX: scrollYProgress,
+          scaleY: scrollYProgress,
         }}
       />
     </>
