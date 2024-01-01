@@ -8,12 +8,14 @@ type RevealProps = HTMLProps<HTMLDivElement>;
 
 export default function Reveal({ children, className }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { margin: "-100px" });
   const animation = useAnimation();
 
   useEffect(() => {
     if (isInView) {
       animation.start("visible");
+    } else {
+      animation.start("hidden");
     }
   }, [isInView]);
 
@@ -23,16 +25,16 @@ export default function Reveal({ children, className }: RevealProps) {
       className={twMerge("relative", className)}
       animate={animation}
       initial="hidden"
-      transition={{ duration: 0.6, ease: "easeInOut", delay: 0.25 }}
+      transition={{ duration: 0.6, ease: "easeInOut", delay: 0.15 }}
       variants={{
         visible: {
           opacity: 1,
-          y: 0,
+          // y: 0,
           filter: "blur(0px)",
         },
         hidden: {
           opacity: 0,
-          y: 100,
+          // y: 100,
           filter: "blur(10px)",
         },
       }}
