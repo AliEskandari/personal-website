@@ -4,11 +4,19 @@ import React, { HTMLProps, useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { twMerge } from "tailwind-merge";
 
-type UnderlineProps = HTMLProps<HTMLSpanElement>;
+type UnderlineProps = HTMLProps<HTMLSpanElement> & {
+  delay?: number;
+  once?: boolean;
+};
 
-export default function Underline({ children, className }: UnderlineProps) {
+export default function Underline({
+  children,
+  className,
+  once,
+  delay,
+}: UnderlineProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: once ?? true });
   const animation = useAnimation();
 
   useEffect(() => {
@@ -30,6 +38,7 @@ export default function Underline({ children, className }: UnderlineProps) {
             transition: {
               duration: 1,
               ease: "easeInOut",
+              delay: delay ?? 0.15,
             },
           },
           hidden: {

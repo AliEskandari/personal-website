@@ -4,11 +4,22 @@ import React, { HTMLProps, useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { twMerge } from "tailwind-merge";
 
-type RevealProps = HTMLProps<HTMLDivElement>;
+type RevealProps = HTMLProps<HTMLDivElement> & {
+  delay?: number;
+  once?: boolean;
 
-export default function Reveal({ children, className }: RevealProps) {
+  animate?: "y"[];
+};
+
+export default function Reveal({
+  children,
+  className,
+  delay,
+  once,
+  animate,
+}: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { margin: "-100px" });
+  const isInView = useInView(ref, { margin: "-100px", once: once ?? true });
   const animation = useAnimation();
 
   useEffect(() => {
@@ -25,16 +36,16 @@ export default function Reveal({ children, className }: RevealProps) {
       className={twMerge("relative", className)}
       animate={animation}
       initial="hidden"
-      transition={{ duration: 0.6, ease: "easeInOut", delay: 0.15 }}
+      transition={{ duration: 0.6, ease: "easeInOut", delay: delay ?? 0.15 }}
       variants={{
         visible: {
           opacity: 1,
-          // y: 0,
+          y: 0,
           filter: "blur(0px)",
         },
         hidden: {
           opacity: 0,
-          // y: 100,
+          y: animate?.includes("y") ? 50 : 0,
           filter: "blur(10px)",
         },
       }}

@@ -129,39 +129,59 @@ export default function Home() {
   const { scrollYProgress } = useScroll({ container: ref });
   return (
     <>
-      <main ref={ref} className="snap-y snap-mandatory h-dvh overflow-y-auto">
-        <Reveal
+      <main
+        ref={ref}
+        className="snap-y snap-mandatory h-dvh overflow-y-auto max-w-7xl mx-auto"
+      >
+        <div
           data-name="hero"
           className="flex flex-col sm:flex-row items-center gap-x-20 p-4 sm:px-10 lg:px-20 h-dvh snap-start"
         >
-          <Image
-            src="/images/profile-pic.jpeg"
-            alt="Ali"
-            className="rounded-full p-4 w-full sm:w-1/3 flex-none"
-            width={500}
-            height={500}
-          />
+          <Reveal
+            delay={2}
+            animate={["y"]}
+            className="w-full sm:w-1/3 flex-none"
+          >
+            <Image
+              src="/images/profile-pic.jpeg"
+              alt="Ali"
+              className="rounded-full p-4 w-full flex-none"
+              width={500}
+              height={500}
+            />
+          </Reveal>
           <div className="flex flex-col gap-4">
-            <h1 className="text-6xl sm:text-8xl font-bold">Hi!</h1>
-            <h2 className="text-2xl sm:text-4xl font-thin">
+            <Reveal
+              delay={0}
+              animate={["y"]}
+              className="text-6xl sm:text-8xl font-bold"
+            >
+              Hi!
+            </Reveal>
+            <Reveal delay={1} className="text-2xl sm:text-4xl font-thin">
               I'm <span className="font-bold">Ali</span>, and I'm a&nbsp;
-              <Underline className="font-bold whitespace-nowrap">
+              <Underline delay={1.5} className="font-bold whitespace-nowrap">
                 Full-Stack Engineer
               </Underline>
               .
-            </h2>
-            <p className="text-xl sm:text-2xl font-thin">
+            </Reveal>
+            <Reveal delay={3} className="text-xl sm:text-2xl font-thin">
               I have a passion for building scalable web apps and engaging user
               experiences, specializing in Next.js, TypeScript, and a mix of
-              front-end and back-end technologies. Motivated by a commitment to
-              excellence and efficiency, I lead teams to transform complex
-              challenges into intuitive solutions.
-            </p>
-            <Button variant="primary" className="px-5 text-xl w-fit mt-4">
-              Let's work together!
-            </Button>
+              front-end and back-end technologies.
+            </Reveal>
+            <Reveal delay={5} className="text-xl sm:text-2xl font-thin">
+              Motivated by a commitment to excellence and efficiency, I lead
+              teams to transform complex challenges into intuitive solutions.
+            </Reveal>
+
+            <Reveal delay={7}>
+              <Button variant="outline" className="px-5 text-2xl w-fit mt-4">
+                Let's work together!
+              </Button>
+            </Reveal>
           </div>
-        </Reveal>
+        </div>
 
         {/* <section data-name="skills" className=""></section>
       <section data-name="education" className=""></section> */}
@@ -175,8 +195,9 @@ export default function Home() {
           </p>
         </Reveal>
         {WorkProjects.map((project) => (
-          <Reveal className="flex flex-col sm:flex-row items-center gap-x-20 p-4 h-dvh sm:px-10 lg:px-20 snap-start">
-            <div
+          <div className="flex flex-col sm:flex-row items-center gap-x-20 p-4 h-dvh sm:px-10 lg:px-20 snap-start">
+            <Reveal
+              delay={1}
               className="w-full overflow-hidden relative sm:w-1/3 flex-none "
               style={{
                 maskImage:
@@ -194,8 +215,8 @@ export default function Home() {
                   />
                 ))}
               </div>
-            </div>
-            <div className="flex flex-col gap-4">
+            </Reveal>
+            <Reveal delay={0} className="flex flex-col gap-4">
               <h1 className="flex gap-4 items-center text-6xl sm:text-8xl font-bold">
                 {project.name}
               </h1>
@@ -224,8 +245,8 @@ export default function Home() {
                   <LinkIcon className="size-8 text-gray-500 hover:text-gray-400 active:text-gray-300" />
                 </Button>
               </div>
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
         ))}
 
         <section data-name="projects" className="h-dvh snap-start">
