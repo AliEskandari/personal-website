@@ -3,17 +3,32 @@ import Reveal from "@/components/animations/reveal";
 import Underline from "@/components/animations/underline";
 import Button from "@/components/buttons/button";
 import Image from "next/image";
-import { EnvelopeIcon, LinkIcon } from "@heroicons/react/16/solid";
-import { motion, useScroll } from "framer-motion";
-import { useRef } from "react";
+import { EnvelopeIcon, LinkIcon, XMarkIcon } from "@heroicons/react/16/solid";
+import { motion, useAnimation, useScroll } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  ArrowsPointingOutIcon,
+  MagnifyingGlassCircleIcon,
+  MagnifyingGlassIcon,
+} from "@heroicons/react/24/outline";
 
-const WorkProjects = [
+type Project = {
+  name: string;
+  position: string;
+  description: string;
+  technologies: string[];
+  githubUrl?: string;
+  link: string;
+  imagesUrls: string[];
+};
+
+const WorkProjects: Project[] = [
   {
     name: "Listr",
     link: "https://listr.app",
-    logoUrl: "/projects/listr/logo.png",
+    position: "Senior Full-Stack Engineer",
     description:
       "The ultimate platform for trading card game enthusiasts. Built with Next.js, TypeScript, Firebase, and Stripe.",
     technologies: [
@@ -26,17 +41,17 @@ const WorkProjects = [
       "Typesense",
       "Docker",
     ],
-    githubUrl: "",
     imagesUrls: [
       "/projects/listr/logo.png",
-      "https://placehold.co/500.png",
-      "https://placehold.co/500.png",
+      "/projects/listr/1.png",
+      "/projects/listr/2.png",
+      "/projects/listr/3.png",
     ],
   },
   {
     name: "Qortor",
-    logoUrl: "/projects/qortor/logo.webp",
     link: "https://Qortor.com",
+    position: "Senior Full-Stack Engineer",
     description: "The future of creators marketplace.",
     technologies: [
       "Next.js",
@@ -47,7 +62,6 @@ const WorkProjects = [
       "Shopify",
       "Vercel",
     ],
-    githubUrl: "",
     imagesUrls: [
       "https://placehold.co/500.png",
       "https://placehold.co/500.png",
@@ -56,24 +70,25 @@ const WorkProjects = [
   },
   {
     name: "DomumGym",
+    position: "Lead Full-Stack Engineer",
     link: "https://domumgym.com",
     description:
       "The ultimate destination for your online gym experience. Connect with fellow enthusiasts, explore trainers and workouts to commit to.",
     technologies: ["React", "Javascript", "Firebase", "Stripe", "Bootstrap"],
-    githubUrl: "",
+    githubUrl: "https://domumgym.com",
     imagesUrls: [
       "/projects/domumgym/logo.png",
-      "https://placehold.co/500.png",
+      "/projects/domumgym/1.png",
       "https://placehold.co/500.png",
     ],
   },
   {
     name: "Dojo Apps",
+    position: "Lead Full-Stack Engineer",
     link: "https://google.com",
     description:
       "The ultimate destination for your online gym experience. Connect with fellow enthusiasts, explore trainers and workouts to commit to.",
     technologies: ["React", "Javascript", "MongoDB", "Shopify"],
-    githubUrl: "",
     imagesUrls: [
       "https://placehold.co/500.png",
       "https://placehold.co/500.png",
@@ -81,7 +96,8 @@ const WorkProjects = [
     ],
   },
   {
-    name: "Booz Allen Hamilton",
+    name: "Booz Allen",
+    position: "Full-Stack Engineer",
     link: "https://boozallen.com",
     description:
       "A social media platform for sharing and discovering new music. Built with Next.js, TypeScript, and Firebase.",
@@ -94,7 +110,6 @@ const WorkProjects = [
       "Docker",
       "Elasticsearch",
     ],
-    githubUrl: "",
     imagesUrls: [
       "https://placehold.co/500.png",
       "https://placehold.co/500.png",
@@ -103,7 +118,7 @@ const WorkProjects = [
   },
   {
     name: "lockr",
-    logoUrl: "/projects/lockr/logo.png",
+    position: "Lead Full-Stack Engineer",
     link: "https://lockr.social",
     description:
       "A social media platform for sharing and discovering new music. Built with Next.js, TypeScript, and Firebase.",
@@ -183,70 +198,11 @@ export default function Home() {
           </div>
         </div>
 
-        {/* <section data-name="skills" className=""></section>
-      <section data-name="education" className=""></section> */}
-        <Reveal
-          data-name="work"
-          className="flex flex-col items-center justify-center h-dvh gap-4 snap-start"
-        >
-          <h1 className="text-4xl sm:text-6xl font-bold">Recent Work</h1>
-          <p className="text-xl sm:text-2xl font-thin">
-            Here are a few projects I've worked on recently.
-          </p>
-        </Reveal>
+        <section data-name="skills" className=""></section>
+        <section data-name="education" className=""></section>
+
         {WorkProjects.map((project) => (
-          <div className="flex flex-col sm:flex-row items-center gap-x-20 p-4 h-dvh sm:px-10 lg:px-20 snap-start">
-            <Reveal
-              delay={1}
-              className="w-full overflow-hidden relative sm:w-1/3 flex-none "
-              style={{
-                maskImage:
-                  "linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%);",
-              }}
-            >
-              <div className="flex gap-x-4 overflow-x-auto snap-mandatory snap-x aspect-square p-4">
-                {project.imagesUrls?.map((imageUrl) => (
-                  <Image
-                    src={imageUrl}
-                    alt={project.name}
-                    className=""
-                    width={500}
-                    height={500}
-                  />
-                ))}
-              </div>
-            </Reveal>
-            <Reveal delay={0} className="flex flex-col gap-4">
-              <h1 className="flex gap-4 items-center text-6xl sm:text-8xl font-bold">
-                {project.name}
-              </h1>
-              <h2 className="text-2xl sm:text-4xl font-thin">
-                {project.description}
-              </h2>
-              <p className="text-lg sm:text-xl text-violet-500 font-medium">
-                {project.technologies.join(" • ")}
-              </p>
-              <div className="flex gap-2">
-                <Button
-                  as="Link"
-                  variant="none"
-                  className="p-1 text-xl w-fit mt-4"
-                >
-                  <FontAwesomeIcon
-                    icon={faGithub}
-                    className="size-8 text-gray-500 hover:text-gray-400 active:text-gray-300"
-                  />
-                </Button>
-                <Button
-                  as="Link"
-                  variant="none"
-                  className="p-1 text-xl w-fit mt-4"
-                >
-                  <LinkIcon className="size-8 text-gray-500 hover:text-gray-400 active:text-gray-300" />
-                </Button>
-              </div>
-            </Reveal>
-          </div>
+          <ProjectCard project={project} />
         ))}
 
         <section data-name="projects" className="h-dvh snap-start">
@@ -282,5 +238,187 @@ export default function Home() {
         }}
       />
     </>
+  );
+}
+
+function ProjectCard({ project }: { project: Project }) {
+  const animation = useAnimation();
+  const [status, setStatus] = useState<"normal" | "image-view">("normal");
+  const [hoverStatus, setHoverStatus] = useState<"hover" | "no-hover">(
+    "no-hover"
+  );
+
+  useEffect(() => {
+    if (status === "normal") {
+      animation.start("normal");
+    } else {
+      animation.start("image-view");
+    }
+  }, [status]);
+
+  useEffect(() => {
+    if (hoverStatus === "hover") {
+      animation.start("hover");
+    } else {
+      animation.start("no-hover");
+    }
+  }, [hoverStatus]);
+
+  return (
+    <div
+      data-name="project"
+      className="flex flex-col sm:flex-row items-center gap-x-10 h-dvh snap-start"
+    >
+      {/* Left Side: Project Images */}
+      <motion.div
+        onClick={() => setStatus("image-view")}
+        onMouseEnter={() => {
+          if (status === "normal") setHoverStatus("hover");
+        }}
+        onMouseLeave={() => {
+          if (status === "normal") setHoverStatus("no-hover");
+        }}
+        data-name="project:images"
+        // delay={1}
+        animate={animation}
+        initial="normal"
+        transition={{ duration: 0.6, ease: "easeInOut" }}
+        variants={{
+          "image-view": {
+            width: "100%",
+            height: "100%",
+            transition: {
+              delay: 0.6,
+              duration: 0.6,
+            },
+          },
+          normal: {
+            width: "calc(100% * 1 / 3)",
+            height: "calc(100% * 1 / 3)",
+          },
+        }}
+        className="overflow-hidden relative flex-none whitespace-nowrap"
+      >
+        <Reveal
+          delay={1}
+          className="h-full"
+          style={{
+            maskImage:
+              "linear-gradient(to right, transparent 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, transparent 100%); ",
+          }}
+        >
+          <div className="flex gap-x-4 overflow-x-auto snap-mandatory snap-x aspect-video p-4 px-10 rounded-xl h-full">
+            {project.imagesUrls?.map((imageUrl) => (
+              <Image
+                src={imageUrl}
+                alt={project.name}
+                className="object-cover w-full h-full rounded-xl"
+                width={2000}
+                height={2000}
+                quality={100}
+              />
+            ))}
+          </div>
+
+          <motion.button
+            animate={animation}
+            initial="normal"
+            variants={{
+              "image-view": {
+                opacity: 0,
+                visibility: "hidden",
+              },
+              normal: {
+                opacity: 0,
+                visibility: "visible",
+              },
+              hover: {
+                opacity: 1,
+                visibility: "visible",
+              },
+              "no-hover": {
+                opacity: 0,
+                visibility: "visible",
+              },
+            }}
+            className="absolute inset-0 flex items-center justify-center backdrop-blur-sm bg-black bg-opacity-80"
+          >
+            <ArrowsPointingOutIcon className="size-12 text-violet-500" />
+          </motion.button>
+        </Reveal>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          animate={animation}
+          initial="normal"
+          variants={{
+            "image-view": {
+              opacity: 1,
+            },
+            normal: {
+              opacity: 0,
+            },
+          }}
+          className="absolute top-5 right-5 p-1 text-xl w-fit rounded-full bg-black"
+          onClick={(event) => {
+            event.stopPropagation();
+            setStatus("normal");
+          }}
+        >
+          <XMarkIcon className="size-8 text-white" />
+        </motion.button>
+      </motion.div>
+
+      {/* Right Side: Project Info */}
+      <motion.div
+        animate={animation}
+        initial="normal"
+        variants={{
+          "image-view": {
+            opacity: 0,
+            transitionEnd: {
+              visibility: "hidden",
+            },
+            transition: {
+              duration: 0.6,
+            },
+          },
+          normal: {
+            opacity: 1,
+            visibility: "visible",
+            transition: {
+              delay: 0.6,
+            },
+          },
+        }}
+        data-name="project:info"
+        // delay={0}
+        className="overflow-clip"
+      >
+        <Reveal className="flex flex-col gap-4 flex-none">
+          <h1 className="flex gap-4 items-center text-6xl sm:text-8xl font-bold">
+            {project.name}
+          </h1>
+          <h2 className="text-2xl sm:text-4xl font-thin">{project.position}</h2>
+          <p className="text-base sm:text-lg text-violet-500 font-medium">
+            {project.technologies.join(" • ")}
+          </p>
+          <h2 className="text-lg sm:text-2xl font-thin">
+            {project.description}
+          </h2>
+
+          <div className="flex gap-2">
+            <Button
+              as="Link"
+              variant="none"
+              href={project.link}
+              className="p-1 text-xl w-fit mt-4"
+            >
+              <LinkIcon className="size-8 text-gray-500 hover:text-gray-400 active:text-gray-300" />
+            </Button>
+          </div>
+        </Reveal>
+      </motion.div>
+    </div>
   );
 }

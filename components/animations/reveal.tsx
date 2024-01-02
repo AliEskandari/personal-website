@@ -1,15 +1,23 @@
 "use client";
 
-import React, { HTMLProps, useEffect, useRef } from "react";
-import { motion, useAnimation, useInView } from "framer-motion";
+import React, {
+  ButtonHTMLAttributes,
+  HTMLProps,
+  useEffect,
+  useRef,
+} from "react";
+import { MotionProps, motion, useAnimation, useInView } from "framer-motion";
 import { twMerge } from "tailwind-merge";
 
-type RevealProps = HTMLProps<HTMLDivElement> & {
-  delay?: number;
-  once?: boolean;
-
-  animate?: "y"[];
-};
+type RevealProps = Omit<
+  HTMLProps<HTMLDivElement>, // Exclude conflicting HTML button element props
+  keyof MotionProps // from Framer Motion's MotionProps interface
+> &
+  MotionProps & {
+    delay?: number;
+    once?: boolean;
+    animate?: "y"[];
+  };
 
 export default function Reveal({
   children,
@@ -17,6 +25,7 @@ export default function Reveal({
   delay,
   once,
   animate,
+  ...props
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { margin: "-100px", once: once ?? true });
@@ -32,6 +41,7 @@ export default function Reveal({
 
   return (
     <motion.div
+      {...props}
       ref={ref}
       className={twMerge("relative", className)}
       animate={animation}
