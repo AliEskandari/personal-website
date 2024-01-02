@@ -19,6 +19,8 @@ type Project = {
   position: string;
   description: string;
   technologies: string[];
+  location: string;
+  dates: string;
   githubUrl?: string;
   link: string;
   imagesUrls: string[];
@@ -27,8 +29,10 @@ type Project = {
 const WorkProjects: Project[] = [
   {
     name: "Listr",
+    dates: "2023 - Present",
     link: "https://listr.app",
     position: "Senior Full-Stack Engineer",
+    location: "Los Angeles, CA",
     description:
       "The ultimate platform for trading card game enthusiasts. Built with Next.js, TypeScript, Firebase, and Stripe.",
     technologies: [
@@ -50,8 +54,10 @@ const WorkProjects: Project[] = [
   },
   {
     name: "Qortor",
+    dates: "2022 - 2023",
     link: "https://Qortor.com",
     position: "Senior Full-Stack Engineer",
+    location: "Los Angeles, CA",
     description: "The future of creators marketplace.",
     technologies: [
       "Next.js",
@@ -69,22 +75,11 @@ const WorkProjects: Project[] = [
     ],
   },
   {
-    name: "DomumGym",
-    position: "Lead Full-Stack Engineer",
-    link: "https://domumgym.com",
-    description:
-      "The ultimate destination for your online gym experience. Connect with fellow enthusiasts, explore trainers and workouts to commit to.",
-    technologies: ["React", "Javascript", "Firebase", "Stripe", "Bootstrap"],
-    githubUrl: "https://domumgym.com",
-    imagesUrls: [
-      "/projects/domumgym/logo.png",
-      "/projects/domumgym/1.png",
-      "https://placehold.co/500.png",
-    ],
-  },
-  {
     name: "Dojo Apps",
+    dates: "2021 - 2022",
     position: "Lead Full-Stack Engineer",
+    location: "Los Angeles, CA",
+
     link: "https://google.com",
     description:
       "The ultimate destination for your online gym experience. Connect with fellow enthusiasts, explore trainers and workouts to commit to.",
@@ -96,8 +91,27 @@ const WorkProjects: Project[] = [
     ],
   },
   {
-    name: "Booz Allen",
+    name: "DomumGym",
+    dates: "2020 - 2021",
+    position: "Lead Full-Stack Engineer",
+    location: "Los Angeles, CA",
+    link: "https://domumgym.com",
+    description:
+      "The ultimate destination for your online gym experience. Connect with fellow enthusiasts, explore trainers and workouts to commit to.",
+    technologies: ["React", "Javascript", "Firebase", "Stripe", "Bootstrap"],
+    githubUrl: "https://domumgym.com",
+    imagesUrls: [
+      "/projects/domumgym/logo.png",
+      "/projects/domumgym/1.png",
+      "https://placehold.co/500.png",
+    ],
+  },
+
+  {
+    name: "Booz Allen Hamilton",
+    dates: "2016 - 2018",
     position: "Full-Stack Engineer",
+    location: "McLean, VA",
     link: "https://boozallen.com",
     description:
       "A social media platform for sharing and discovering new music. Built with Next.js, TypeScript, and Firebase.",
@@ -118,7 +132,9 @@ const WorkProjects: Project[] = [
   },
   {
     name: "lockr",
+    dates: "",
     position: "Lead Full-Stack Engineer",
+    location: "Los Angeles, CA",
     link: "https://lockr.social",
     description:
       "A social media platform for sharing and discovering new music. Built with Next.js, TypeScript, and Firebase.",
@@ -144,13 +160,10 @@ export default function Home() {
   const { scrollYProgress } = useScroll({ container: ref });
   return (
     <>
-      <main
-        ref={ref}
-        className="snap-y snap-mandatory h-dvh overflow-y-auto max-w-7xl mx-auto"
-      >
+      <main ref={ref} className="max-w-5xl mx-auto flex flex-col">
         <div
           data-name="hero"
-          className="flex flex-col sm:flex-row items-center gap-x-20 p-4 sm:px-10 lg:px-20 h-dvh snap-start"
+          className="flex flex-col sm:flex-row items-center gap-x-20 p-4 h-dvh snap-start"
         >
           <Reveal
             delay={2}
@@ -173,7 +186,7 @@ export default function Home() {
             >
               Hi!
             </Reveal>
-            <Reveal delay={1} className="text-2xl sm:text-4xl font-thin">
+            <Reveal delay={1} className="text-2xl sm:text-3xl font-thin">
               I'm <span className="font-bold">Ali</span>, and I'm a&nbsp;
               <Underline delay={1.5} className="font-bold whitespace-nowrap">
                 Full-Stack Engineer
@@ -199,18 +212,26 @@ export default function Home() {
         </div>
 
         <section data-name="skills" className=""></section>
+
         <section data-name="education" className=""></section>
 
-        {WorkProjects.map((project) => (
-          <ProjectCard project={project} />
-        ))}
+        <section className="max-w-3xl mx-auto mb-20">
+          <Reveal className="text-6xl font-bold mb-8">Work Experience</Reveal>
+          <div className="flex flex-col">
+            {WorkProjects.map((project) => (
+              <ProjectCard project={project} />
+            ))}
+          </div>
+        </section>
 
         <section data-name="projects" className="h-dvh snap-start">
           <h1 className="text-4xl sm:text-6xl font-bold">Projects</h1>
         </section>
+
         <section data-name="testimonials" className="h-dvh snap-start">
           <h1 className="text-4xl sm:text-6xl font-bold">Testimonials</h1>
         </section>
+
         <Reveal
           data-name="contact"
           className="flex flex-col items-center justify-center h-dvh gap-4 snap-start"
@@ -229,6 +250,7 @@ export default function Home() {
             &nbsp;alieskandari3@gmail.com
           </Button>
         </Reveal>
+
         <section data-name="resume" className=""></section>
       </main>
       <motion.div
@@ -242,183 +264,35 @@ export default function Home() {
 }
 
 function ProjectCard({ project }: { project: Project }) {
-  const animation = useAnimation();
-  const [status, setStatus] = useState<"normal" | "image-view">("normal");
-  const [hoverStatus, setHoverStatus] = useState<"hover" | "no-hover">(
-    "no-hover"
-  );
-
-  useEffect(() => {
-    if (status === "normal") {
-      animation.start("normal");
-    } else {
-      animation.start("image-view");
-    }
-  }, [status]);
-
-  useEffect(() => {
-    if (hoverStatus === "hover") {
-      animation.start("hover");
-    } else {
-      animation.start("no-hover");
-    }
-  }, [hoverStatus]);
-
   return (
-    <div
-      data-name="project"
-      className="flex flex-col sm:flex-row items-center gap-x-10 h-dvh snap-start"
-    >
-      {/* Left Side: Project Images */}
-      <motion.div
-        onClick={() => setStatus("image-view")}
-        onMouseEnter={() => {
-          if (status === "normal") setHoverStatus("hover");
-        }}
-        onMouseLeave={() => {
-          if (status === "normal") setHoverStatus("no-hover");
-        }}
-        data-name="project:images"
-        // delay={1}
-        animate={animation}
-        initial="normal"
-        transition={{ duration: 0.6, ease: "easeInOut" }}
-        variants={{
-          "image-view": {
-            width: "100%",
-            height: "100%",
-            transition: {
-              delay: 0.6,
-              duration: 0.6,
-            },
-          },
-          normal: {
-            width: "calc(100% * 1 / 3)",
-            height: "calc(100% * 1 / 3)",
-          },
-        }}
-        className="overflow-hidden relative flex-none whitespace-nowrap"
-      >
-        <Reveal
-          delay={1}
-          className="h-full"
-          style={{
-            maskImage:
-              "linear-gradient(to right, transparent 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, transparent 100%); ",
-          }}
-        >
-          <div className="flex gap-x-4 overflow-x-auto snap-mandatory snap-x aspect-video p-4 px-10 rounded-xl h-full">
-            {project.imagesUrls?.map((imageUrl) => (
-              <Image
-                src={imageUrl}
-                alt={project.name}
-                className="object-cover w-full h-full rounded-xl"
-                width={2000}
-                height={2000}
-                quality={100}
-              />
-            ))}
+    <Reveal className="flex flex-col flex-none w-full border-b border-gray-800 px-0 py-8">
+      <div className="flex justify-between items-end">
+        <h1 className="text-2xl font-medium">{project.name}</h1>
+        <h3 className="font-thin text-lg">{project.dates}</h3>
+      </div>
+      <div className="flex justify-between items-end text-lg mb-4">
+        <h2 className="font-medium text-violet-500">{project.position}</h2>
+        <h2 className="font-thin">{project.location}</h2>
+      </div>
+      <h2 className="font-thin text-lg mb-4">{project.description}</h2>
+      <div className=" font-base text-sm flex gap-2">
+        {project.technologies.map((technology) => (
+          <div className="rounded-full w-fit py-1.5 px-3 border border-gray-700 bg-gray-900">
+            {technology}
           </div>
-
-          <motion.button
-            animate={animation}
-            initial="normal"
-            variants={{
-              "image-view": {
-                opacity: 0,
-                visibility: "hidden",
-              },
-              normal: {
-                opacity: 0,
-                visibility: "visible",
-              },
-              hover: {
-                opacity: 1,
-                visibility: "visible",
-              },
-              "no-hover": {
-                opacity: 0,
-                visibility: "visible",
-              },
-            }}
-            className="absolute inset-0 flex items-center justify-center backdrop-blur-sm bg-black bg-opacity-80"
-          >
-            <ArrowsPointingOutIcon className="size-12 text-violet-500" />
-          </motion.button>
-        </Reveal>
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          animate={animation}
-          initial="normal"
-          variants={{
-            "image-view": {
-              opacity: 1,
-            },
-            normal: {
-              opacity: 0,
-            },
-          }}
-          className="absolute top-5 right-5 p-1 text-xl w-fit rounded-full bg-black"
-          onClick={(event) => {
-            event.stopPropagation();
-            setStatus("normal");
-          }}
+        ))}
+      </div>
+      {/* 
+      <div className="flex gap-2">
+        <Button
+          as="Link"
+          variant="none"
+          href={project.link}
+          className="p-1 text-xl w-fit mt-4"
         >
-          <XMarkIcon className="size-8 text-white" />
-        </motion.button>
-      </motion.div>
-
-      {/* Right Side: Project Info */}
-      <motion.div
-        animate={animation}
-        initial="normal"
-        variants={{
-          "image-view": {
-            opacity: 0,
-            transitionEnd: {
-              visibility: "hidden",
-            },
-            transition: {
-              duration: 0.6,
-            },
-          },
-          normal: {
-            opacity: 1,
-            visibility: "visible",
-            transition: {
-              delay: 0.6,
-            },
-          },
-        }}
-        data-name="project:info"
-        // delay={0}
-        className="overflow-clip"
-      >
-        <Reveal className="flex flex-col gap-4 flex-none">
-          <h1 className="flex gap-4 items-center text-6xl sm:text-8xl font-bold">
-            {project.name}
-          </h1>
-          <h2 className="text-2xl sm:text-4xl font-thin">{project.position}</h2>
-          <p className="text-base sm:text-lg text-violet-500 font-medium">
-            {project.technologies.join(" • ")}
-          </p>
-          <h2 className="text-lg sm:text-2xl font-thin">
-            {project.description}
-          </h2>
-
-          <div className="flex gap-2">
-            <Button
-              as="Link"
-              variant="none"
-              href={project.link}
-              className="p-1 text-xl w-fit mt-4"
-            >
-              <LinkIcon className="size-8 text-gray-500 hover:text-gray-400 active:text-gray-300" />
-            </Button>
-          </div>
-        </Reveal>
-      </motion.div>
-    </div>
+          <LinkIcon className="size-8 text-gray-500 hover:text-gray-400 active:text-gray-300" />
+        </Button>
+      </div> */}
+    </Reveal>
   );
 }

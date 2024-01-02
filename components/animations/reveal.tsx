@@ -28,7 +28,11 @@ export default function Reveal({
   ...props
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { margin: "-100px", once: once ?? true });
+  const isInView = useInView(ref, {
+    margin: "-100px",
+    once: once ?? true,
+    amount: 0.2,
+  });
   const animation = useAnimation();
 
   useEffect(() => {
