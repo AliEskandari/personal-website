@@ -160,13 +160,13 @@ export default function Home() {
   const { scrollYProgress } = useScroll({ container: ref });
   return (
     <>
-      <main ref={ref} className="max-w-5xl mx-auto flex flex-col">
+      <main ref={ref} className="flex flex-col">
         <div
           data-name="hero"
-          className="flex flex-col sm:flex-row items-center gap-x-20 p-4 h-dvh snap-start"
+          className="flex flex-col sm:flex-row items-center max-w-5xl mx-auto w-full gap-x-20 p-4 h-dvh snap-start mb-10"
         >
           <Reveal
-            delay={2}
+            delay={1}
             animate={["y"]}
             className="w-full sm:w-1/3 flex-none"
           >
@@ -186,24 +186,26 @@ export default function Home() {
             >
               Hi!
             </Reveal>
-            <Reveal delay={1} className="text-2xl sm:text-3xl font-thin">
-              I'm <span className="font-bold">Ali</span>, and I'm a&nbsp;
-              <Underline delay={1.5} className="font-bold whitespace-nowrap">
-                Full-Stack Engineer
-              </Underline>
-              .
+            <Reveal delay={1} animate={["y"]}>
+              <h2 className="text-2xl sm:text-3xl font-thin mb-4">
+                I'm <span className="font-bold">Ali</span>, and I'm a&nbsp;
+                <Underline delay={1.5} className="font-bold whitespace-nowrap">
+                  Full-Stack Engineer
+                </Underline>
+                .
+              </h2>
+              <p className="text-xl sm:text-2xl font-thin">
+                I have a passion for building scalable web apps and engaging
+                user experiences, specializing in Next.js, TypeScript, and a mix
+                of front-end and back-end technologies.
+              </p>
             </Reveal>
-            <Reveal delay={3} className="text-xl sm:text-2xl font-thin">
-              I have a passion for building scalable web apps and engaging user
-              experiences, specializing in Next.js, TypeScript, and a mix of
-              front-end and back-end technologies.
-            </Reveal>
-            <Reveal delay={5} className="text-xl sm:text-2xl font-thin">
+            {/* <Reveal delay={1} className="text-xl sm:text-2xl font-thin">
               Motivated by a commitment to excellence and efficiency, I lead
               teams to transform complex challenges into intuitive solutions.
-            </Reveal>
+            </Reveal> */}
 
-            <Reveal delay={7}>
+            <Reveal delay={1} animate={["y"]}>
               <Button variant="outline" className="px-5 text-2xl w-fit mt-4">
                 Let's work together!
               </Button>
@@ -211,12 +213,75 @@ export default function Home() {
           </div>
         </div>
 
-        <section data-name="skills" className=""></section>
+        <section
+          data-name="about"
+          className="mb-24 w-full bg-neutral-950 flex items-center justify-center h-dvh border-y border-gray-800"
+        >
+          <div className="max-w-4xl mx-auto w-full ">
+            <Reveal className="text-5xl font-bold mb-4">
+              <Underline delay={0.3}>About</Underline>
+            </Reveal>
+            <div className="flex flex-col">
+              <Reveal
+                delay={0.5}
+                className="flex flex-col gap-4 flex-none w-full px-0 py-8 sm:w-1/2 text-lg font-thin"
+              >
+                <p className="">
+                  I'm a Full-Stack Engineer with 6+ years of experience building
+                  scalable web apps and engaging user experiences. I'm
+                  passionate about building products that make a difference in
+                  people's lives. I'm a self-starter who loves to learn and is
+                  always looking for ways to improve.
+                </p>
+                <p className="">
+                  I'm motivated by a commitment to excellence and efficiency. I
+                  lead teams to transform complex challenges into intuitive
+                  solutions.
+                </p>
+                <p className="">
+                  I love to travel, hike, and play soccer. I'm also a big fan of
+                  music and enjoy playing the guitar.
+                </p>
+                <p className="">
+                  I'm currently looking to join a team of talented engineers to
+                  build products that make a difference in people's lives.
+                </p>
+              </Reveal>
 
-        <section data-name="education" className=""></section>
+              <Reveal className="w-full sm:w-1/2"></Reveal>
+            </div>
+          </div>
+        </section>
 
-        <section className="max-w-3xl mx-auto mb-20">
-          <Reveal className="text-6xl font-bold mb-8">Work Experience</Reveal>
+        <section
+          data-name="education"
+          className="max-w-4xl mx-auto mb-24 w-full"
+        >
+          <Reveal className="text-5xl font-bold mb-6">
+            <Underline delay={0.3}>Education</Underline>
+          </Reveal>
+          <Reveal
+            delay={0.5}
+            className="flex flex-col flex-none w-full border-b border-gray-800 px-0 py-8"
+          >
+            <div className="flex justify-between items-end text-lg">
+              <h1 className="text-2xl font-medium">University of Maryland</h1>
+              <h2 className="font-thin">College Park, MD</h2>
+            </div>
+            <div className="flex justify-between items-end text-lg">
+              <h2 className="font-medium text-violet-500">
+                Bachelor of Science in Computer Science
+              </h2>
+              <h3 className="font-thin text-lg">Graduated May 2015</h3>
+            </div>
+            <h2 className="font-thin text-lg mb-4">GPA: 3.55</h2>
+          </Reveal>
+        </section>
+
+        <section data-name="experience" className="max-w-4xl mx-auto mb-24">
+          <Reveal className="text-5xl font-bold mb-6">
+            <Underline delay={0.3}>Work Experience</Underline>
+          </Reveal>
           <div className="flex flex-col">
             {WorkProjects.map((project) => (
               <ProjectCard project={project} />
@@ -224,33 +289,29 @@ export default function Home() {
           </div>
         </section>
 
-        <section data-name="projects" className="h-dvh snap-start">
-          <h1 className="text-4xl sm:text-6xl font-bold">Projects</h1>
-        </section>
-
-        <section data-name="testimonials" className="h-dvh snap-start">
-          <h1 className="text-4xl sm:text-6xl font-bold">Testimonials</h1>
-        </section>
-
-        <Reveal
+        <section
           data-name="contact"
-          className="flex flex-col items-center justify-center h-dvh gap-4 snap-start"
+          className="w-full bg-neutral-950 flex items-center justify-center h-dvh border-y border-gray-800"
         >
-          <h1 className="text-4xl sm:text-6xl font-bold">Contact</h1>
-          <p className="text-xl sm:text-2xl font-thin">
-            I'm currently open to new opportunities. Let's connect!
-          </p>
-          <Button
-            variant="outline"
-            as="Link"
-            href="mailto:alieskandari3@gmail.com"
-            className="text-xl sm:text-2xl font-bold flex items-center"
+          <Reveal
+            data-name="contact"
+            className="flex flex-col items-center justify-center h-dvh gap-4 snap-start"
           >
-            <EnvelopeIcon className="w-6" />
-            &nbsp;alieskandari3@gmail.com
-          </Button>
-        </Reveal>
-
+            <h1 className="text-4xl sm:text-6xl font-bold">Contact</h1>
+            <p className="text-xl sm:text-2xl font-thin">
+              I'm currently open to new opportunities. Let's connect!
+            </p>
+            <Button
+              variant="outline"
+              as="Link"
+              href="mailto:alieskandari3@gmail.com"
+              className="text-xl sm:text-2xl font-bold flex items-center"
+            >
+              <EnvelopeIcon className="w-6" />
+              &nbsp;alieskandari3@gmail.com
+            </Button>
+          </Reveal>
+        </section>
         <section data-name="resume" className=""></section>
       </main>
       <motion.div
