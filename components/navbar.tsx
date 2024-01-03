@@ -12,18 +12,18 @@ export default function Navbar() {
           variant="none"
           className="text-violet-500 hover:text-violet-400"
           as="Link"
-          href="/projects"
+          href="https://github.com/AliEskandari"
         >
           <FontAwesomeIcon icon={faGithub} className="size-6" />
         </Button>
-        <Button
+        {/* <Button
           variant="none"
           className="text-violet-500 hover:text-violet-400"
           as="Link"
           href="/about"
         >
           <FontAwesomeIcon icon={faLinkedin} className="size-6" />
-        </Button>
+        </Button> */}
       </div>
       <div>
         <Button
