@@ -2,17 +2,11 @@
 import Reveal from "@/components/animations/reveal";
 import Underline from "@/components/animations/underline";
 import Button from "@/components/buttons/button";
+import { EnvelopeIcon } from "@heroicons/react/16/solid";
+import { motion, useScroll } from "framer-motion";
 import Image from "next/image";
-import { EnvelopeIcon, LinkIcon, XMarkIcon } from "@heroicons/react/16/solid";
-import { motion, useAnimation, useScroll } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  ArrowsPointingOutIcon,
-  MagnifyingGlassCircleIcon,
-  MagnifyingGlassIcon,
-} from "@heroicons/react/24/outline";
+import { useRef } from "react";
+import Navbar from "@/components/navbar";
 
 type Project = {
   name: string;
@@ -160,25 +154,26 @@ export default function Home() {
   const { scrollYProgress } = useScroll({ container: ref });
   return (
     <>
+      <Navbar />
       <main ref={ref} className="flex flex-col">
-        <div
+        <section
           data-name="hero"
-          className="flex flex-col sm:flex-row items-center max-w-5xl mx-auto w-full gap-x-20 p-4 h-dvh snap-start mb-10"
+          className="flex flex-col sm:flex-row items-center justify-center max-w-5xl mx-auto w-full gap-x-20 h-dvh snap-start mb-10"
         >
           <Reveal
             delay={1}
             animate={["y"]}
-            className="w-full sm:w-1/3 flex-none"
+            className="w-full sm:w-1/3 flex-none px-24 pt-14 sm:p-0"
           >
             <Image
               src="/images/profile-pic.jpeg"
               alt="Ali"
-              className="rounded-full p-4 w-full flex-none"
+              className="rounded-full w-full flex-none"
               width={500}
               height={500}
             />
           </Reveal>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 px-14 pt-10">
             <Reveal
               delay={0}
               animate={["y"]}
@@ -194,7 +189,7 @@ export default function Home() {
                 </Underline>
                 .
               </h2>
-              <p className="text-xl sm:text-2xl font-thin">
+              <p className="sm:text-2xl font-thin">
                 I have a passion for building scalable web apps and engaging
                 user experiences, specializing in Next.js, TypeScript, and a mix
                 of front-end and back-end technologies.
@@ -206,16 +201,19 @@ export default function Home() {
             </Reveal> */}
 
             <Reveal delay={1} animate={["y"]}>
-              <Button variant="outline" className="px-5 text-2xl w-fit mt-4">
+              <Button
+                variant="outline"
+                className="px-5 sm:text-2xl w-full sm:w-fit mt-4"
+              >
                 Let's work together!
               </Button>
             </Reveal>
           </div>
-        </div>
+        </section>
 
         <section
           data-name="about"
-          className="mb-24 w-full bg-neutral-950 flex items-center justify-center h-dvh border-y border-gray-800"
+          className="mb-24 w-full bg-neutral-950 flex flex-col sm:flex-row items-center justify-center h-dvh border-y border-gray-800 px-14"
         >
           <div className="max-w-4xl mx-auto w-full ">
             <Reveal className="text-5xl font-bold mb-4">
@@ -224,7 +222,7 @@ export default function Home() {
             <div className="flex flex-col">
               <Reveal
                 delay={0.5}
-                className="flex flex-col gap-4 flex-none w-full px-0 py-8 sm:w-1/2 text-lg font-thin"
+                className="flex flex-col gap-4 w-full px-0 py-8 sm:w-1/2 text-lg font-thin"
               >
                 <p className="">
                   I'm a Full-Stack Engineer with 6+ years of experience building
@@ -255,20 +253,20 @@ export default function Home() {
 
         <section
           data-name="education"
-          className="max-w-4xl mx-auto mb-24 w-full"
+          className="max-w-4xl mx-auto mb-24 w-full px-14 sm:px-0"
         >
           <Reveal className="text-5xl font-bold mb-6">
             <Underline delay={0.3}>Education</Underline>
           </Reveal>
           <Reveal
             delay={0.5}
-            className="flex flex-col flex-none w-full border-b border-gray-800 px-0 py-8"
+            className="flex flex-col w-full border-b border-gray-800 px-0 py-8 gap-4"
           >
-            <div className="flex justify-between items-end text-lg">
+            <div className="flex flex-col sm:flex-row justify-start sm:justify-between sm:items-end text-lg">
               <h1 className="text-2xl font-medium">University of Maryland</h1>
               <h2 className="font-thin">College Park, MD</h2>
             </div>
-            <div className="flex justify-between items-end text-lg">
+            <div className="flex flex-col sm:flex-row justify-start sm:justify-between sm:items-end text-lg">
               <h2 className="font-medium text-violet-500">
                 Bachelor of Science in Computer Science
               </h2>
@@ -278,7 +276,10 @@ export default function Home() {
           </Reveal>
         </section>
 
-        <section data-name="experience" className="max-w-4xl mx-auto mb-24">
+        <section
+          data-name="experience"
+          className="max-w-4xl mx-auto mb-24 w-full px-14 sm:px-0"
+        >
           <Reveal className="text-5xl font-bold mb-6">
             <Underline delay={0.3}>Work Experience</Underline>
           </Reveal>
@@ -291,52 +292,52 @@ export default function Home() {
 
         <section
           data-name="contact"
-          className="w-full bg-neutral-950 flex items-center justify-center h-dvh border-y border-gray-800"
+          className="w-full bg-neutral-950 flex items-center justify-center h-dvh border-y border-gray-800 px-14"
         >
           <Reveal
             data-name="contact"
             className="flex flex-col items-center justify-center h-dvh gap-4 snap-start"
           >
             <h1 className="text-4xl sm:text-6xl font-bold">Contact</h1>
-            <p className="text-xl sm:text-2xl font-thin">
+            <p className="text-lg sm:text-2xl font-thin text-center">
               I'm currently open to new opportunities. Let's connect!
             </p>
             <Button
               variant="outline"
               as="Link"
               href="mailto:alieskandari3@gmail.com"
-              className="text-xl sm:text-2xl font-bold flex items-center"
+              className="text-lg sm:text-2xl font-bold flex items-center"
             >
               <EnvelopeIcon className="w-6" />
               &nbsp;alieskandari3@gmail.com
             </Button>
           </Reveal>
         </section>
-        <section data-name="resume" className=""></section>
+        {/* <section data-name="resume" className=""></section> */}
       </main>
-      <motion.div
+      {/* <motion.div
         className="fixed right-0 top-0 bottom-0 w-2 origin-top-right bg-violet-500"
         style={{
           scaleY: scrollYProgress,
         }}
-      />
+      /> */}
     </>
   );
 }
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <Reveal className="flex flex-col flex-none w-full border-b border-gray-800 px-0 py-8">
-      <div className="flex justify-between items-end">
+    <Reveal className="flex flex-col w-full border-b border-gray-800 px-0 py-8 gap-4 sm:gap-0">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end">
         <h1 className="text-2xl font-medium">{project.name}</h1>
         <h3 className="font-thin text-lg">{project.dates}</h3>
       </div>
-      <div className="flex justify-between items-end text-lg mb-4">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end text-lg mb-4">
         <h2 className="font-medium text-violet-500">{project.position}</h2>
         <h2 className="font-thin">{project.location}</h2>
       </div>
       <h2 className="font-thin text-lg mb-4">{project.description}</h2>
-      <div className=" font-base text-sm flex gap-2">
+      <div className="flex-wrap font-base text-sm flex gap-2">
         {project.technologies.map((technology) => (
           <div className="rounded-full w-fit py-1.5 px-3 border border-gray-700 bg-gray-900">
             {technology}
