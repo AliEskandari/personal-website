@@ -163,7 +163,7 @@ export default function Home() {
           <Reveal
             delay={1}
             animate={["y"]}
-            className="w-full sm:w-1/3 flex-none px-24 pt-14 sm:p-0"
+            className="w-full sm:w-1/3 flex-none px-20 pt-14 sm:p-0"
           >
             <Image
               src="/images/profile-pic.jpeg"
@@ -173,7 +173,7 @@ export default function Home() {
               height={500}
             />
           </Reveal>
-          <div className="flex flex-col gap-4 px-14 pt-10">
+          <div className="flex flex-col gap-4 px-10 pt-10">
             <Reveal
               delay={0}
               animate={["y"]}
@@ -203,7 +203,7 @@ export default function Home() {
             <Reveal delay={1} animate={["y"]}>
               <Button
                 variant="outline"
-                className="px-5 sm:text-2xl w-full sm:w-fit mt-4"
+                className="px-5 text-lg sm:text-xl w-full sm:w-fit mt-4"
               >
                 Let's work together!
               </Button>
@@ -213,7 +213,7 @@ export default function Home() {
 
         <section
           data-name="about"
-          className="mb-24 w-full bg-neutral-950 flex flex-col sm:flex-row items-center justify-center h-dvh border-y border-gray-800 px-14"
+          className="mb-24 w-full bg-neutral-950 flex flex-col sm:flex-row items-center justify-center h-dvh border-y border-gray-800 px-10"
         >
           <div className="max-w-4xl mx-auto w-full ">
             <Reveal className="text-5xl font-bold mb-4">
@@ -253,7 +253,7 @@ export default function Home() {
 
         <section
           data-name="education"
-          className="max-w-4xl mx-auto mb-24 w-full px-14 sm:px-0"
+          className="max-w-4xl mx-auto mb-24 w-full px-10 sm:px-0"
         >
           <Reveal className="text-5xl font-bold mb-6">
             <Underline delay={0.3}>Education</Underline>
@@ -278,7 +278,7 @@ export default function Home() {
 
         <section
           data-name="experience"
-          className="max-w-4xl mx-auto mb-24 w-full px-14 sm:px-0"
+          className="max-w-4xl mx-auto mb-24 w-full px-10 sm:px-0"
         >
           <Reveal className="text-5xl font-bold mb-6">
             <Underline delay={0.3}>Work Experience</Underline>
@@ -292,7 +292,7 @@ export default function Home() {
 
         <section
           data-name="contact"
-          className="w-full bg-neutral-950 flex items-center justify-center h-dvh border-y border-gray-800 px-14"
+          className="w-full bg-neutral-950 flex items-center justify-center h-dvh border-y border-gray-800 px-10"
         >
           <Reveal
             data-name="contact"
@@ -306,7 +306,7 @@ export default function Home() {
               variant="outline"
               as="Link"
               href="mailto:alieskandari3@gmail.com"
-              className="text-lg sm:text-2xl font-bold flex items-center"
+              className="text-lg sm:text-xl flex items-center"
             >
               <EnvelopeIcon className="w-6" />
               &nbsp;alieskandari3@gmail.com
