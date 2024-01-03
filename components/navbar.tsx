@@ -26,7 +26,12 @@ export default function Navbar() {
         </Button>
       </div>
       <div>
-        <Button variant="none" className="text-violet-500">
+        <Button
+          as="Link"
+          href="/files/resume.pdf"
+          variant="none"
+          className="text-violet-500"
+        >
           My resume
         </Button>
       </div>
