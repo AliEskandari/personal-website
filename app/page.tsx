@@ -2,11 +2,13 @@
 import Reveal from "@/components/animations/reveal";
 import Underline from "@/components/animations/underline";
 import Button from "@/components/buttons/button";
+import Navbar from "@/components/navbar";
+import { faGithub } from "@fortawesome/free-brands-svg-icons/faGithub";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { EnvelopeIcon } from "@heroicons/react/16/solid";
-import { motion, useScroll } from "framer-motion";
+import { useScroll } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
-import Navbar from "@/components/navbar";
 
 type Project = {
   name: string;
@@ -38,6 +40,8 @@ const WorkProjects: Project[] = [
       "GCP",
       "Typesense",
       "Docker",
+      "React Query",
+      "Zustand",
     ],
     imagesUrls: [
       "/projects/listr/logo.png",
@@ -61,6 +65,8 @@ const WorkProjects: Project[] = [
       "Stripe",
       "Shopify",
       "Vercel",
+      "Redux",
+      "Figma",
     ],
     imagesUrls: [
       "https://placehold.co/500.png",
@@ -77,7 +83,15 @@ const WorkProjects: Project[] = [
     link: "https://google.com",
     description:
       "The ultimate destination for your online gym experience. Connect with fellow enthusiasts, explore trainers and workouts to commit to.",
-    technologies: ["React", "Javascript", "MongoDB", "Shopify"],
+    technologies: [
+      "React",
+      "Javascript",
+      "MongoDB",
+      "Shopify",
+      "GraphQL",
+      "AWS",
+      "Tailwind CSS",
+    ],
     imagesUrls: [
       "https://placehold.co/500.png",
       "https://placehold.co/500.png",
@@ -314,6 +328,7 @@ export default function Home() {
           </Reveal>
         </section>
         {/* <section data-name="resume" className=""></section> */}
+        <Footer />
       </main>
       {/* <motion.div
         className="fixed right-0 top-0 bottom-0 w-2 origin-top-right bg-violet-500"
@@ -356,5 +371,21 @@ function ProjectCard({ project }: { project: Project }) {
         </Button>
       </div> */}
     </Reveal>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="flex gap-4  items-center justify-center h-14 border-t border-gray-800">
+      <Button
+        variant="text"
+        className="text-sm flex items-center gap-2"
+        as="Link"
+        href=""
+      >
+        See the code on Github{" "}
+        <FontAwesomeIcon icon={faGithub} className="size-6" />
+      </Button>
+    </footer>
   );
 }
