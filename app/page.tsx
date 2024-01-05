@@ -42,6 +42,7 @@ const WorkProjects: Project[] = [
       "Docker",
       "React Query",
       "Zustand",
+      "Mixpanel",
     ],
     imagesUrls: [
       "/projects/listr/logo.png",
@@ -153,6 +154,7 @@ const WorkProjects: Project[] = [
       "Tailwind CSS",
       "Docker",
       "GCP",
+      "Google Analytics",
     ],
     githubUrl: "",
     imagesUrls: [
