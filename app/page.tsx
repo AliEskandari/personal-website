@@ -184,7 +184,7 @@ export default function Home() {
             <Image
               src="/images/profile-pic.jpeg"
               alt="Ali"
-              className="rounded-full w-full flex-none"
+              className="rounded-full w-full flex-none aspect-square object-cover"
               width={500}
               height={500}
             />
