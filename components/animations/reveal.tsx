@@ -29,7 +29,7 @@ export default function Reveal({
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, {
-    margin: "-100px",
+    margin: "-50px",
     once: once ?? true,
     amount: 0.2,
   });
@@ -47,7 +47,7 @@ export default function Reveal({
     <motion.div
       {...props}
       ref={ref}
-      className={twMerge("relative", className)}
+      className={twMerge("", className)}
       animate={animation}
       initial="hidden"
       transition={{ duration: 0.6, ease: "easeInOut", delay: delay ?? 0.15 }}

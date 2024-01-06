@@ -5,7 +5,7 @@ import Button from "./buttons/button";
 export default function Navbar() {
   return (
     <div className="z-10 backdrop-blur-md fixed top-0 left-0 right-0 border-b border-gray-800">
-      <nav className="max-w-7xl mx-auto h-14 sm:h-20 px-10 text-white flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto h-14 px-10 text-white flex items-center justify-between">
         <div className="flex gap-6 items-center">
           <Button
             variant="text"
