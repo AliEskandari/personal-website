@@ -220,7 +220,7 @@ export default function Home() {
 
             <div
               data-name="hero:text"
-              className="flex flex-col gap-4 px-10 sm:pt-10"
+              className="flex flex-col gap-4 px-8 sm:pt-10"
             >
               <Reveal
                 delay={0}
@@ -476,7 +476,7 @@ function Section({ heading, children, className }: SectionProps) {
   return (
     <section
       className={twMerge(
-        "max-w-4xl mx-auto mb-24 w-full px-10 sm:px-0",
+        "max-w-4xl mx-auto mb-24 w-full px-8 sm:px-0",
         className
       )}
     >
