@@ -176,7 +176,7 @@ export default function Home() {
       <main ref={ref} className="flex flex-col">
         <section
           data-name="hero:container"
-          className="flex items-center justify-center max-w-5xl mx-auto w-full h-dvh mb-10"
+          className="flex items-center justify-center max-w-5xl mx-auto w-full h-svh mb-10"
         >
           <div
             data-name="hero:content"
@@ -336,11 +336,11 @@ export default function Home() {
 
         <section
           data-name="contact"
-          className="w-full bg-neutral-950 flex items-center justify-center h-dvh border-y border-gray-800 px-10"
+          className="w-full bg-neutral-950 flex items-center justify-center h-svh border-y border-gray-800 px-10"
         >
           <Reveal
             data-name="contact"
-            className="flex flex-col items-center justify-center h-dvh gap-4"
+            className="flex flex-col items-center justify-center h-svh gap-4"
           >
             <h1 className="text-4xl sm:text-6xl font-bold">Contact</h1>
             <p className="text-lg sm:text-2xl font-thin text-center">
