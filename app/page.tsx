@@ -511,7 +511,7 @@ function Footer() {
   return (
     <footer className="flex gap-4 items-center justify-center pt-1.5 pb-2.5">
       <Button
-        variant="text"
+        variant="text-dark"
         className="text-xs sm:text-sm flex items-center gap-2"
         as="Link"
         href=""

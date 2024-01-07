@@ -24,6 +24,8 @@ const variants = {
     "text-violet-500 hover:text-violet-400 active:text-violet-300 border border-violet-500 hover:border-violet-400 active:border-violet-300",
   "outline-dark": "text-black hover:text-neutral-800 active:text-neutral-700",
   text: "text-violet-500 hover:text-violet-400 active:text-violet-300",
+  "text-dark":
+    "text-neutral-500 hover:text-neutral-400 active:text-neutral-300",
   none: "p-0",
 } as const;
 
