@@ -16,7 +16,7 @@ import { twMerge } from "tailwind-merge";
 type Project = {
   name: string;
   position: string;
-  description: string;
+  description: React.ReactNode;
   technologies: string[];
   location: string;
   dates: string;
@@ -32,15 +32,46 @@ const WorkProjects: Project[] = [
     link: "https://listr.app",
     position: "Senior Full-Stack Engineer",
     location: "Los Angeles, CA",
-    description:
-      "The ultimate platform for trading card game enthusiasts. Built with Next.js, TypeScript, Firebase, and Stripe.",
+    description: (
+      <>
+        An online platform for trading card game enthusiasts, featuring an
+        extensive database of over 450,000 cards. As the lead developer and UI
+        designer, I engineered a platform that allows users to effortlessly
+        build, share, and explore decks, as well as engage in a marketplace for
+        buying, selling, and trading cards. I focused on delivering a seamless
+        user experience through intuitive navigation and aesthetic design,
+        ensuring every aspect of the site enhances the community's interaction
+        and enjoyment.
+        <br />
+        <br />
+        <b>Key Contributions:</b>
+        <ul className="list-disc list-inside mb-2">
+          <li className="list-item">
+            Designed and developed the front-end architecture and user
+            experience.
+          </li>
+          <li className="list-item">
+            Engineered the back-end architecture and database.
+          </li>
+          <li className="list-item">
+            Implemented a custom search engine using Typesense.
+          </li>
+          <li className="list-item">
+            Integrated Stripe for processing payments.
+          </li>
+          <li className="list-item">
+            Developed a custom analytics dashboard using Mixpanel.
+          </li>
+        </ul>
+      </>
+    ),
     technologies: [
       "Next.js",
       "TypeScript",
-      "Firebase",
+      "Firebase (Firestore, Storage, Functions, Authentication)",
       "Tailwind CSS",
       "Stripe",
-      "GCP",
+      "GCP (Compute Engine)",
       "Typesense",
       "Docker",
       "React Query",
@@ -67,7 +98,7 @@ const WorkProjects: Project[] = [
       "MongoDB",
       "Styled Components",
       "Stripe",
-      "Shopify",
+      "Shopify API",
       "Vercel",
       "Redux",
       "Figma",
@@ -91,9 +122,9 @@ const WorkProjects: Project[] = [
       "React",
       "Javascript",
       "MongoDB",
-      "Shopify",
+      "Shopify API",
       "GraphQL",
-      "AWS",
+      "AWS (Lambda)",
       "Tailwind CSS",
       "Material UI",
     ],
@@ -108,10 +139,16 @@ const WorkProjects: Project[] = [
     dates: "2020 - 2021",
     position: "Lead Full-Stack Engineer",
     location: "Los Angeles, CA",
-    link: "https://domumgym.com",
+    link: "",
     description:
       "The ultimate destination for your online gym experience. Connect with fellow enthusiasts, explore trainers and workouts to commit to.",
-    technologies: ["React", "Javascript", "Firebase", "Stripe", "Bootstrap"],
+    technologies: [
+      "React",
+      "Javascript",
+      "Firebase (Firestore, Storage, Hosting, Authentication)",
+      "Stripe",
+      "Bootstrap",
+    ],
     githubUrl: "",
     imagesUrls: [
       "/projects/domumgym/logo.png",
@@ -133,7 +170,7 @@ const WorkProjects: Project[] = [
       "Javascript",
       "MySQL",
       "Ruby on Rails",
-      "AWS",
+      "AWS (EC2, S3, RDS, Elasticbeanstalk)",
       "Docker",
       "Elasticsearch",
     ],
@@ -151,7 +188,7 @@ const WorkProjects: Project[] = [
     link: "",
     description:
       "A social media platform for sharing and discovering new music. Built with Next.js, TypeScript, and Firebase.",
-    technologies: ["Android", "Java", "AWS"],
+    technologies: ["Android", "Java"],
     imagesUrls: [
       "https://placehold.co/500.png",
       "https://placehold.co/500.png",
@@ -172,10 +209,10 @@ const PersonalProjects: Project[] = [
     technologies: [
       "Next.js",
       "TypeScript",
-      "Firebase",
+      "Firebase (Firestore, Storage, Functions, Hosting, Authentication)",
       "Tailwind CSS",
       "Docker",
-      "GCP",
+      "GCP (Cloud Run)",
       "Google Analytics",
     ],
     githubUrl: "https://github.com",
@@ -284,7 +321,7 @@ export default function Home() {
 
         <section
           data-name="about:container"
-          className="w-full bg-neutral-950 flex justify-center items-center border-y border-gray-800 sm:px-10 py-20 mb-24"
+          className="w-full bg-neutral-950 flex justify-center items-center border-y border-gray-800 sm:px-10 py-20 mb-24 min-h-svh"
         >
           <Section data-name="about" heading="About" className="mb-0">
             <div className="flex flex-col sm:flex-row justify-between gap-10">
@@ -523,7 +560,7 @@ function Section({ heading, children, className }: SectionProps) {
   return (
     <section
       className={twMerge(
-        "max-w-5xl mx-auto mb-24 w-full px-8 sm:px-0",
+        "max-w-5xl mx-auto mb-24 w-full px-8 sm:px-0 py-14",
         className
       )}
     >
