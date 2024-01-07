@@ -68,7 +68,8 @@ const WorkProjects: Project[] = [
     technologies: [
       "Next.js",
       "TypeScript",
-      "Firebase (Firestore, Storage, Functions, Authentication)",
+      "Firebase",
+      "Firestore",
       "Tailwind CSS",
       "Stripe",
       "GCP (Compute Engine)",
@@ -120,7 +121,7 @@ const WorkProjects: Project[] = [
       "The ultimate destination for your online gym experience. Connect with fellow enthusiasts, explore trainers and workouts to commit to.",
     technologies: [
       "React",
-      "Javascript",
+      "TypeScript",
       "MongoDB",
       "Shopify API",
       "GraphQL",
@@ -144,8 +145,9 @@ const WorkProjects: Project[] = [
       "The ultimate destination for your online gym experience. Connect with fellow enthusiasts, explore trainers and workouts to commit to.",
     technologies: [
       "React",
-      "Javascript",
-      "Firebase (Firestore, Storage, Hosting, Authentication)",
+      "JavaScript",
+      "Firebase",
+      "Firestore",
       "Stripe",
       "Bootstrap",
     ],
@@ -167,7 +169,7 @@ const WorkProjects: Project[] = [
       "A social media platform for sharing and discovering new music. Built with Next.js, TypeScript, and Firebase.",
     technologies: [
       "Ember.js",
-      "Javascript",
+      "JavaScript",
       "MySQL",
       "Ruby on Rails",
       "AWS (EC2, S3, RDS, Elasticbeanstalk)",
@@ -209,10 +211,12 @@ const PersonalProjects: Project[] = [
     technologies: [
       "Next.js",
       "TypeScript",
-      "Firebase (Firestore, Storage, Functions, Hosting, Authentication)",
+      "Firebase",
+      "Firestore",
+      "Google Cloud Functions",
       "Tailwind CSS",
       "Docker",
-      "GCP (Cloud Run)",
+      "Google Cloud Run",
       "Google Analytics",
     ],
     githubUrl: "https://github.com",
@@ -324,7 +328,7 @@ export default function Home() {
           className="w-full bg-neutral-950 flex justify-center items-center border-y border-gray-800 sm:px-10 py-20 mb-24 min-h-svh"
         >
           <Section data-name="about" heading="About" className="mb-0">
-            <div className="flex flex-col sm:flex-row justify-between gap-10">
+            <div className="flex flex-col sm:flex-row justify-between gap-10 z-10">
               <Reveal
                 delay={0.5}
                 className="flex flex-col gap-4 w-full px-0 py-8 sm:w-1/2 text-base sm:text-lg font-thin"
@@ -353,9 +357,9 @@ export default function Home() {
 
               <Reveal className="w-full sm:w-1/2" delay={1}>
                 <Image
-                  src="/images/profile-pic.jpeg"
+                  src="/images/color-prof.png"
                   alt="Ali"
-                  className="rounded-full flex-none aspect-square object-cover w-2/3 mx-auto filter grayscale"
+                  className="rounded-full flex-none aspect-square object-cover w-2/3 mx-auto"
                   width={500}
                   height={500}
                 />
@@ -364,22 +368,30 @@ export default function Home() {
           </Section>
         </section>
 
-        <Section data-name="education" heading="Education">
+        <Section
+          data-name="education"
+          heading="Education"
+          className="pt-8 sm:pt-24"
+        >
           <Reveal
             delay={0.5}
             className="flex flex-col w-full border-b border-gray-800 px-0 py-8 gap-4 sm:gap-0"
           >
-            <div className="flex flex-col sm:flex-row justify-start sm:justify-between sm:items-end text-lg">
+            <div className="flex flex-col sm:flex-row justify-start sm:justify-between sm:items-end">
               <h1 className="text-2xl font-medium">University of Maryland</h1>
-              <h2 className="font-thin">College Park, MD</h2>
+              <h2 className="font-thin text-base sm:text-lg">
+                College Park, MD
+              </h2>
             </div>
-            <div className="flex flex-col sm:flex-row justify-start sm:justify-between sm:items-end text-lg">
-              <h2 className="font-medium text-violet-500">
+            <div className="flex flex-col sm:flex-row justify-start sm:justify-between sm:items-end ">
+              <h2 className="font-medium text-violet-500 text-base sm:text-lg">
                 Bachelor of Science in Computer Science
               </h2>
-              <h3 className="font-thin text-lg">Graduated May 2015</h3>
+              <h3 className="font-thin text-base sm:text-lg">
+                Graduated May 2015
+              </h3>
             </div>
-            <h2 className="font-thin text-lg mb-4">GPA: 3.55</h2>
+            <h2 className="font-thin text-base mb-4">GPA: 3.55</h2>
           </Reveal>
         </Section>
 
@@ -443,14 +455,18 @@ function ProjectCard({ project }: { project: Project }) {
     <Reveal className="flex flex-col w-full border-b border-gray-800 px-0 py-8 gap-4 sm:gap-0">
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end">
         <h1 className="text-2xl font-medium">{project.name}</h1>
-        <h3 className="font-thin text-lg">{project.dates}</h3>
+        <h3 className="font-thin text-base sm:text-lg">{project.dates}</h3>
       </div>
-      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end text-lg mb-4">
-        <h2 className="font-medium text-violet-500">{project.position}</h2>
-        <h2 className="font-thin">{project.location}</h2>
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end mb-4">
+        <h2 className="font-medium text-violet-500 text-lg">
+          {project.position}
+        </h2>
+        <h2 className="font-thin text-base sm:text-lg">{project.location}</h2>
       </div>
-      <h2 className="font-thin text-lg mb-4">{project.description}</h2>
-      <div className="flex-wrap font-base text-sm flex gap-2">
+      <h2 className="font-thin text-base sm:text-lg mb-4">
+        {project.description}
+      </h2>
+      <div className="flex-wrap font-base text-xs sm:text-sm flex gap-2">
         {project.technologies.map((technology) => (
           <div
             key={technology}
@@ -460,7 +476,7 @@ function ProjectCard({ project }: { project: Project }) {
           </div>
         ))}
       </div>
-      <div className="flex gap-2">
+      <div className="flex items-center gap-2">
         {iff(
           !!project.link,
           <Button
@@ -469,7 +485,7 @@ function ProjectCard({ project }: { project: Project }) {
             href={project.link}
             className="p-1 text-xl w-fit mt-4"
           >
-            <LinkIcon className="size-4 sm:size-6 text-gray-500 hover:text-gray-400 active:text-gray-300" />
+            <LinkIcon className="size-5 sm:size-6 text-gray-500 hover:text-gray-400 active:text-gray-300" />
           </Button>
         )}
         {iff(
@@ -482,7 +498,7 @@ function ProjectCard({ project }: { project: Project }) {
           >
             <FontAwesomeIcon
               icon={faGithub}
-              className="size-4 sm:size-6 text-gray-500 hover:text-gray-400 active:text-gray-300"
+              className="size-5 sm:size-6 text-gray-500 hover:text-gray-400 active:text-gray-300"
             />
           </Button>
         )}
@@ -496,12 +512,12 @@ function Footer() {
     <footer className="flex gap-4 items-center justify-center pt-1.5 pb-2.5">
       <Button
         variant="text"
-        className="text-sm flex items-center gap-2"
+        className="text-xs sm:text-sm flex items-center gap-2"
         as="Link"
         href=""
       >
         See the code on Github{" "}
-        <FontAwesomeIcon icon={faGithub} className="size-6" />
+        <FontAwesomeIcon icon={faGithub} className="size-4 sm:size-6" />
       </Button>
     </footer>
   );
@@ -528,7 +544,7 @@ function Light({
       <motion.div
         initial={{
           offsetDistance: direction == "cw" ? "0%" : "100%",
-          opacity: 0.7,
+          opacity: 0.6,
         }}
         animate={{
           offsetDistance: direction == "cw" ? "100%" : "0%",
@@ -560,7 +576,7 @@ function Section({ heading, children, className }: SectionProps) {
   return (
     <section
       className={twMerge(
-        "max-w-5xl mx-auto mb-24 w-full px-8 sm:px-0 py-14",
+        "max-w-5xl mx-auto w-full px-8 lg:px-0 mb-24 sm:mb-44",
         className
       )}
     >

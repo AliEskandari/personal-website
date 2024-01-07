@@ -1,37 +1,29 @@
 import { faGithub } from "@fortawesome/free-brands-svg-icons/faGithub";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "./buttons/button";
+import { BriefcaseIcon, DocumentIcon } from "@heroicons/react/24/outline";
 
 export default function Navbar() {
   return (
-    <div className="z-10 backdrop-blur-md fixed top-0 left-0 right-0 border-b border-gray-800">
-      <nav className="max-w-7xl mx-auto h-14 px-10 text-white flex items-center justify-between">
-        <div className="flex gap-6 items-center">
+    <div className="z-10 fixed top-0 left-0 right-0">
+      <nav className="max-w-7xl mx-auto h-14 px-4 sm:px-10 text-white flex items-center justify-end">
+        <div className="flex items-center justify-around backdrop-blur-sm gap-0 rounded-full border-gray-800 border">
           <Button
             variant="text"
-            className="flex items-center"
+            className="flex items-center justify-center rounded-full size-10"
             as="Link"
             href="https://github.com/AliEskandari"
           >
-            <FontAwesomeIcon icon={faGithub} className="size-6" />
+            <FontAwesomeIcon icon={faGithub} className="size-5" />
           </Button>
-          {/* <Button
-          variant="none"
-          className="text-violet-500 hover:text-violet-400"
-          as="Link"
-          href="/about"
-        >
-          <FontAwesomeIcon icon={faLinkedin} className="size-6" />
-        </Button> */}
-        </div>
-        <div>
           <Button
             as="Link"
             href="/files/resume.pdf"
-            variant="none"
-            className="text-violet-500 flex items-center gap-x-2 text-sm"
+            variant="text"
+            className="flex items-center justify-center rounded-full size-10 p-0"
           >
-            My resume
+            <DocumentIcon className="size-5" />
+            {/* My resume */}
           </Button>
         </div>
       </nav>
