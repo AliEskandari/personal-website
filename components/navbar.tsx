@@ -5,7 +5,7 @@ import { BriefcaseIcon, DocumentIcon } from "@heroicons/react/24/outline";
 
 export default function Navbar() {
   return (
-    <div className="z-10 fixed top-0 left-0 right-0">
+    <div className="z-10 absolute top-0 left-0 right-0">
       <nav className="max-w-5xl mx-auto h-16  text-white flex items-center justify-end">
         <div className="flex items-center justify-around backdrop-blur-md gap-2 rounded-full border-neutral-800 border px-2 divide-x-[.2px] divide-neutral-800">
           <Button
