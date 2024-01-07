@@ -31,7 +31,6 @@ export default function Reveal({
   const isInView = useInView(ref, {
     margin: "-50px",
     once: once ?? true,
-    amount: 0.2,
   });
   const animation = useAnimation();
 

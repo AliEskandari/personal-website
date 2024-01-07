@@ -185,13 +185,13 @@ export default function Home() {
             <Reveal
               data-name="light:left"
               delay={1.4}
-              className="absolute left-20 top-20 sm:left-[450px] sm:top-[280px]"
+              className="absolute left-20 top-20 sm:left-[250px] sm:top-[50px]"
             >
               <Light
-                pathRadius={15}
+                pathRadius={10}
                 direction="ccw"
-                duration={815}
-                className="size-24 bg-violet-500/10"
+                duration={15}
+                className="size-40 sm:size-80 bg-violet-500/15"
               />
             </Reveal>
             <Reveal
@@ -214,7 +214,7 @@ export default function Home() {
                 direction="cw"
                 pathRadius={28}
                 duration={25}
-                className="size-32 sm:size-52 bg-violet-700/30"
+                className="size-28 sm:size-44 bg-violet-700/30"
               />
             </Reveal>
 
@@ -253,7 +253,7 @@ export default function Home() {
               <Reveal delay={1} animate={["y"]}>
                 <Button
                   variant="outline"
-                  className="sm:px-5 text-base sm:text-xl w-full sm:w-fit mt-4"
+                  className="sm:px-5 text-sm sm:text-sm w-full sm:w-fit mt-4"
                 >
                   Let's work together!
                 </Button>
@@ -350,7 +350,7 @@ export default function Home() {
               variant="outline"
               as="Link"
               href="mailto:alieskandari3@gmail.com"
-              className="text-lg sm:text-xl flex items-center"
+              className="text-sm sm:text-sm flex items-center"
             >
               <EnvelopeIcon className="w-6" />
               &nbsp;alieskandari3@gmail.com

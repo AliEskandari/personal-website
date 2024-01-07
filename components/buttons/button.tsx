@@ -43,7 +43,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ) => {
     const _props = {
       className: twMerge(
-        "transition-colors outline-none focus:outline-none rounded-lg disabled:cursor-pointer py-3 px-4",
+        "transition-colors outline-none focus:outline-none rounded-full disabled:cursor-pointer py-3 px-4",
         variants[variant ?? "none"],
         className,
         isLoading && variants.secondary,
