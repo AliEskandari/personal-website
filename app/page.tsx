@@ -325,7 +325,7 @@ export default function Home() {
 
         <section
           data-name="about:container"
-          className="w-full bg-neutral-950 flex justify-center items-center border-y border-gray-800 sm:px-10 py-20 mb-24 min-h-svh"
+          className="w-full bg-neutral-950 flex justify-center items-center border-y border-neutral-800 sm:px-10 py-20 mb-24 min-h-svh"
         >
           <Section data-name="about" heading="About" className="mb-0">
             <div className="flex flex-col sm:flex-row justify-between gap-10 z-10">
@@ -375,7 +375,7 @@ export default function Home() {
         >
           <Reveal
             delay={0.5}
-            className="flex flex-col w-full border-b border-gray-800 px-0 py-8 gap-4 sm:gap-0"
+            className="flex flex-col w-full border-b border-neutral-800 px-0 py-8 gap-4 sm:gap-0"
           >
             <div className="flex flex-col sm:flex-row justify-start sm:justify-between sm:items-end">
               <h1 className="text-2xl font-medium">University of Maryland</h1>
@@ -414,7 +414,7 @@ export default function Home() {
 
         <section
           data-name="contact"
-          className="w-full bg-neutral-950 flex items-center justify-center h-svh border-y border-gray-800 px-10"
+          className="w-full bg-neutral-950 flex items-center justify-center h-svh border-y border-neutral-800 px-10"
         >
           <Reveal
             data-name="contact"
@@ -452,7 +452,7 @@ export default function Home() {
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <Reveal className="flex flex-col w-full border-b border-gray-800 px-0 py-8 gap-4 sm:gap-0">
+    <Reveal className="flex flex-col w-full border-b border-neutral-800 px-0 py-8 gap-4 sm:gap-0">
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end">
         <h1 className="text-2xl font-medium">{project.name}</h1>
         <h3 className="font-thin text-base sm:text-lg">{project.dates}</h3>
@@ -470,7 +470,7 @@ function ProjectCard({ project }: { project: Project }) {
         {project.technologies.map((technology) => (
           <div
             key={technology}
-            className="rounded-full w-fit py-1.5 px-3 border border-gray-700 bg-gray-900"
+            className="rounded-full w-fit py-1.5 px-3 border border-neutral-700 bg-neutral-900"
           >
             {technology}
           </div>
@@ -485,7 +485,7 @@ function ProjectCard({ project }: { project: Project }) {
             href={project.link}
             className="p-1 text-xl w-fit mt-4"
           >
-            <LinkIcon className="size-5 sm:size-6 text-gray-500 hover:text-gray-400 active:text-gray-300" />
+            <LinkIcon className="size-5 sm:size-6 text-neutral-500 hover:text-neutral-400 active:text-neutral-300" />
           </Button>
         )}
         {iff(
@@ -498,7 +498,7 @@ function ProjectCard({ project }: { project: Project }) {
           >
             <FontAwesomeIcon
               icon={faGithub}
-              className="size-5 sm:size-6 text-gray-500 hover:text-gray-400 active:text-gray-300"
+              className="size-5 sm:size-6 text-neutral-500 hover:text-neutral-400 active:text-neutral-300"
             />
           </Button>
         )}
