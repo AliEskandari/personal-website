@@ -3,9 +3,11 @@ import Reveal from "@/components/animations/reveal";
 import Underline from "@/components/animations/underline";
 import Button from "@/components/buttons/button";
 import Navbar from "@/components/navbar";
+import { iff } from "@/modules/functions/iff";
 import { faGithub } from "@fortawesome/free-brands-svg-icons/faGithub";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { EnvelopeIcon } from "@heroicons/react/16/solid";
+import { LinkIcon } from "@heroicons/react/24/outline";
 import { motion, useScroll } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
@@ -55,7 +57,7 @@ const WorkProjects: Project[] = [
   {
     name: "Qortor",
     dates: "2022 - 2023",
-    link: "https://Qortor.com",
+    link: "",
     position: "Senior Full-Stack Engineer",
     location: "Los Angeles, CA",
     description: "The future of creators marketplace.",
@@ -82,7 +84,7 @@ const WorkProjects: Project[] = [
     position: "Lead Full-Stack Engineer",
     location: "Los Angeles, CA",
 
-    link: "https://google.com",
+    link: "",
     description:
       "The ultimate destination for your online gym experience. Connect with fellow enthusiasts, explore trainers and workouts to commit to.",
     technologies: [
@@ -110,7 +112,7 @@ const WorkProjects: Project[] = [
     description:
       "The ultimate destination for your online gym experience. Connect with fellow enthusiasts, explore trainers and workouts to commit to.",
     technologies: ["React", "Javascript", "Firebase", "Stripe", "Bootstrap"],
-    githubUrl: "https://domumgym.com",
+    githubUrl: "",
     imagesUrls: [
       "/projects/domumgym/logo.png",
       "/projects/domumgym/1.png",
@@ -123,7 +125,7 @@ const WorkProjects: Project[] = [
     dates: "2016 - 2018",
     position: "Full-Stack Engineer",
     location: "McLean, VA",
-    link: "https://boozallen.com",
+    link: "",
     description:
       "A social media platform for sharing and discovering new music. Built with Next.js, TypeScript, and Firebase.",
     technologies: [
@@ -142,6 +144,24 @@ const WorkProjects: Project[] = [
     ],
   },
   {
+    name: "Amazon Music",
+    dates: "Summer 2014",
+    position: "Software Engineer Intern",
+    location: "San Francisco, CA",
+    link: "",
+    description:
+      "A social media platform for sharing and discovering new music. Built with Next.js, TypeScript, and Firebase.",
+    technologies: ["Android", "Java", "AWS"],
+    imagesUrls: [
+      "https://placehold.co/500.png",
+      "https://placehold.co/500.png",
+      "https://placehold.co/500.png",
+    ],
+  },
+];
+
+const PersonalProjects: Project[] = [
+  {
     name: "lockr",
     dates: "",
     position: "Lead Full-Stack Engineer",
@@ -158,7 +178,7 @@ const WorkProjects: Project[] = [
       "GCP",
       "Google Analytics",
     ],
-    githubUrl: "",
+    githubUrl: "https://github.com",
     imagesUrls: [
       "https://placehold.co/500.png",
       "https://placehold.co/500.png",
@@ -188,10 +208,10 @@ export default function Home() {
               className="absolute left-20 top-20 sm:left-[250px] sm:top-[50px]"
             >
               <Light
-                pathRadius={10}
+                pathRadius={20}
                 direction="ccw"
-                duration={15}
-                className="size-40 sm:size-80 bg-violet-500/15"
+                duration={10}
+                className="size-40 sm:size-[350px] bg-violet-500/15"
               />
             </Reveal>
             <Reveal
@@ -334,6 +354,15 @@ export default function Home() {
           </div>
         </Section>
 
+        <Section data-name="projects" heading="Projects">
+          <div className="flex flex-col">
+            <ProjectCard
+              key={PersonalProjects[0].name}
+              project={PersonalProjects[0]}
+            />
+          </div>
+        </Section>
+
         <section
           data-name="contact"
           className="w-full bg-neutral-950 flex items-center justify-center h-svh border-y border-gray-800 px-10"
@@ -342,8 +371,10 @@ export default function Home() {
             data-name="contact"
             className="flex flex-col items-center justify-center h-svh gap-4"
           >
-            <h1 className="text-4xl sm:text-6xl font-bold">Contact</h1>
-            <p className="text-lg sm:text-2xl font-thin text-center">
+            <Underline className="text-4xl sm:text-6xl font-bold">
+              Contact
+            </Underline>
+            <p className="text-lg sm:text-2xl font-thin text-center mb-4">
               I'm currently open to new opportunities. Let's connect!
             </p>
             <Button
@@ -392,24 +423,40 @@ function ProjectCard({ project }: { project: Project }) {
           </div>
         ))}
       </div>
-      {/* 
       <div className="flex gap-2">
-        <Button
-          as="Link"
-          variant="none"
-          href={project.link}
-          className="p-1 text-xl w-fit mt-4"
-        >
-          <LinkIcon className="size-8 text-gray-500 hover:text-gray-400 active:text-gray-300" />
-        </Button>
-      </div> */}
+        {iff(
+          !!project.link,
+          <Button
+            as="Link"
+            variant="none"
+            href={project.link}
+            className="p-1 text-xl w-fit mt-4"
+          >
+            <LinkIcon className="size-4 sm:size-6 text-gray-500 hover:text-gray-400 active:text-gray-300" />
+          </Button>
+        )}
+        {iff(
+          !!project.githubUrl,
+          <Button
+            as="Link"
+            variant="none"
+            href={project.githubUrl}
+            className="p-1 text-xl w-fit mt-4"
+          >
+            <FontAwesomeIcon
+              icon={faGithub}
+              className="size-4 sm:size-6 text-gray-500 hover:text-gray-400 active:text-gray-300"
+            />
+          </Button>
+        )}
+      </div>
     </Reveal>
   );
 }
 
 function Footer() {
   return (
-    <footer className="flex gap-4  items-center justify-center h-14 border-t border-gray-800">
+    <footer className="flex gap-4 items-center justify-center pt-1.5 pb-2.5">
       <Button
         variant="text"
         className="text-sm flex items-center gap-2"
@@ -476,11 +523,11 @@ function Section({ heading, children, className }: SectionProps) {
   return (
     <section
       className={twMerge(
-        "max-w-4xl mx-auto mb-24 w-full px-8 sm:px-0",
+        "max-w-5xl mx-auto mb-24 w-full px-8 sm:px-0",
         className
       )}
     >
-      <Reveal className="text-4xl sm:text-5xl font-bold mb-6">
+      <Reveal className="text-4xl sm:text-5xl font-bold mb-4 sm:mb-6">
         <Underline delay={0.3}>{heading}</Underline>
       </Reveal>
 
