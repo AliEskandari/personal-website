@@ -178,6 +178,7 @@ const WorkProjects: Project[] = [
       "JavaScript",
       "MySQL",
       "Ruby on Rails",
+      "RSpec",
       "AWS",
       "EC2",
       "S3",
@@ -186,6 +187,7 @@ const WorkProjects: Project[] = [
       "SES",
       "Docker",
       "Elasticsearch",
+      "Agile Development",
     ],
     imagesUrls: [
       "https://placehold.co/500.png",
@@ -201,7 +203,7 @@ const WorkProjects: Project[] = [
     link: "",
     description:
       "A social media platform for sharing and discovering new music. Built with Next.js, TypeScript, and Firebase.",
-    technologies: ["Android", "Java"],
+    technologies: ["Android", "Java", "Agile Development"],
     imagesUrls: [
       "https://placehold.co/500.png",
       "https://placehold.co/500.png",
