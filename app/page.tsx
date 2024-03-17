@@ -28,39 +28,37 @@ type Project = {
 const WorkProjects: Project[] = [
   {
     name: "Listr",
-    dates: "2023 - Present",
+    dates: "July 2023 - Present",
     link: "https://listr.app",
     position: "Senior Full-Stack Engineer",
     location: "Los Angeles, CA",
     description: (
       <>
         An online platform for trading card game enthusiasts, featuring an
-        extensive database of over 450,000 cards. As the lead developer and UI
-        designer, I engineered a platform that allows users to effortlessly
-        build, share, and explore decks, as well as engage in a marketplace for
-        buying, selling, and trading cards. I focused on delivering a seamless
-        user experience through intuitive navigation and aesthetic design,
-        ensuring every aspect of the site enhances the community's interaction
-        and enjoyment.
+        extensive database of over 450,000 cards. As the lead developer, I
+        engineered a platform that allows users to easily build, share, and
+        explore decks, as well as engage in a marketplace for buying, selling,
+        and trading cards.
         <br />
         <br />
         <b>Key Contributions:</b>
         <ul className="list-disc list-inside mb-2">
           <li className="list-item">
-            Designed and developed the front-end architecture and user
-            experience.
+            Led the design of RESTful APIs using Node and Next.js to enable
+            integrations with services such as Stripe, SendGrid, and eBay.
           </li>
           <li className="list-item">
-            Engineered the back-end architecture and database.
+            Oversaw the project's deployment across Google Cloud Platform,
+            Firebase, and Vercel.
           </li>
           <li className="list-item">
-            Implemented a custom search engine using Typesense.
+            Managed the application's primary NoSQL database in Firestore and
+            search engine database in Typesense.
           </li>
           <li className="list-item">
-            Integrated Stripe for processing payments.
-          </li>
-          <li className="list-item">
-            Developed a custom analytics dashboard using Mixpanel.
+            Guided junior developers through code reviews and pair programming,
+            enhancing their coding skills and fostering a collaborative team
+            environment.
           </li>
         </ul>
       </>
@@ -93,7 +91,35 @@ const WorkProjects: Project[] = [
     link: "",
     position: "Senior Full-Stack Engineer",
     location: "Los Angeles, CA",
-    description: "The future of creators marketplace.",
+    description: (
+      <>
+        A video and e-commerce platform for creators in the cosmetics space.
+        Creators can upload videos, create a storefront, and sell products
+        directly to their audience. As a senior engineer, I was responsible for
+        optimizing the application's performance and scalability.
+        <br />
+        <br />
+        <b>Key Contributions:</b>
+        <ul className="list-disc list-inside mb-2">
+          <li className="list-item">
+            Optimized load times and performance by utilizing Next.js framework,
+            resulting in a 40% improvement in page load times.
+          </li>
+          <li className="list-item">
+            Refined application code with efficient code patterns in React and
+            Redux to improve scalability and maintainability.
+          </li>
+          <li className="list-item">
+            Designed efficient, scalable database schemas in MongoDB to improve
+            performance and reduce codebase complexity.
+          </li>
+          <li className="list-item">
+            Worked collaboratively within team of designers, developers, and
+            project managers.
+          </li>
+        </ul>
+      </>
+    ),
     technologies: [
       "Next.js",
       "TypeScript",
@@ -220,7 +246,7 @@ const PersonalProjects: Project[] = [
     location: "Los Angeles, CA",
     link: "https://lockr.social",
     description:
-      "A social media platform for sharing and discovering new music. Built with Next.js, TypeScript, and Firebase.",
+      "A social media tool to help creators grow their audience. Creators can 'lock' their content behind social media actions like requiring a follow or like of their content. Built with Next.js, TypeScript, and Firebase.",
     technologies: [
       "Next.js",
       "TypeScript",
@@ -233,7 +259,7 @@ const PersonalProjects: Project[] = [
       "Google Cloud Run",
       "Google Analytics",
     ],
-    githubUrl: "https://github.com",
+    // githubUrl: "https://github.com",
     imagesUrls: [
       "https://placehold.co/500.png",
       "https://placehold.co/500.png",
@@ -360,8 +386,9 @@ export default function Home() {
                   solutions.
                 </p>
                 <p className="">
-                  I love to travel, hike, and play soccer. I'm also a big fan of
-                  music and enjoy playing the guitar.
+                  I love listening to music, working out, and going on TikTok.
+                  If I have time I like to mess around on a piano and try to
+                  write a song.
                 </p>
                 <p className="">
                   I'm currently looking to join a team of talented engineers to
@@ -405,7 +432,6 @@ export default function Home() {
                 Graduated May 2015
               </h3>
             </div>
-            <h2 className="font-thin text-base mb-4">GPA: 3.55</h2>
           </Reveal>
         </Section>
 
