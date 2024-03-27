@@ -146,8 +146,31 @@ const WorkProjects: Project[] = [
     location: "Los Angeles, CA",
 
     link: "",
-    description:
-      "The ultimate destination for your online gym experience. Connect with fellow enthusiasts, explore trainers and workouts to commit to.",
+    description: (
+      <>
+        Apps allowed sellers to automate order fulfillment between Shopify and
+        Amazon Seller accounts, streamlining e-commerce operations, and
+        integrate social media into their storefronts for enhanced product
+        display and engagement.
+        <br />
+        <br />
+        <b>Key Contributions:</b>
+        <ul className="list-disc list-inside mb-2">
+          <li className="list-item">
+            Led the design, development, and successful launch of two Shopify
+            apps with React, Express, and Node.js.
+          </li>
+          <li className="list-item">
+            Developed RESTful APIs using Express to enable integrations with
+            services such as Amazon Seller Central, Instagram, and Shopify.
+          </li>
+          <li className="list-item">
+            Engineered apps to meet Shopify's data and user security standards
+            for publishing onto Shopify App Store.
+          </li>
+        </ul>
+      </>
+    ),
     technologies: [
       "React",
       "TypeScript",
@@ -173,8 +196,12 @@ const WorkProjects: Project[] = [
     position: "Lead Full-Stack Engineer",
     location: "Los Angeles, CA",
     link: "",
-    description:
-      "The ultimate destination for your online gym experience. Connect with fellow enthusiasts, explore trainers and workouts to commit to.",
+    description: (
+      <>
+        Online platform for fitness enthusiasts to connect with trainers and
+        access a library of workouts. Built with React, Firebase, and Stripe.
+      </>
+    ),
     technologies: [
       "React",
       "JavaScript",
@@ -197,8 +224,35 @@ const WorkProjects: Project[] = [
     position: "Full-Stack Engineer",
     location: "McLean, VA",
     link: "",
-    description:
-      "A social media platform for sharing and discovering new music. Built with Next.js, TypeScript, and Firebase.",
+    description: (
+      <>
+        A web application allowing businesses to easily organize, search, and
+        share company documents within a private, secure infrastructure.
+        <br />
+        <br />
+        <b>Key Contributions:</b>
+        <ul className="list-disc list-inside mb-2">
+          <li className="list-item">
+            Aided in the development of a business web app using Ruby on Rails
+            and Ember.js.
+          </li>
+          <li className="list-item">
+            Contributed to the development of a public-facing REST API,
+            utilizing the OAuth protocol for authentication.
+          </li>
+          <li className="list-item">
+            Reduced application deployment times from days to a few hours by
+            implementing AWS Elastic Beanstalk and CloudFormation in the
+            deployment strategy.
+          </li>
+          <li className="list-item">
+            Communicated with project manager and team members through daily
+            scrum meetings and code review sessions, following the Agile Scrum
+            process.
+          </li>
+        </ul>
+      </>
+    ),
     technologies: [
       "Ember.js",
       "JavaScript",
@@ -227,8 +281,28 @@ const WorkProjects: Project[] = [
     position: "Software Engineer Intern",
     location: "San Francisco, CA",
     link: "",
-    description:
-      "A social media platform for sharing and discovering new music. Built with Next.js, TypeScript, and Firebase.",
+    description: (
+      <>
+        Amazon Music's mobile Android application, contributing to the
+        development of new features. Utilized Java and Agile Development.
+        <br />
+        <br />
+        <b>Key Contributions:</b>
+        <ul className="list-disc list-inside mb-2">
+          <li className="list-item">
+            Managed Lyrics integration, comprising of implementing UX additions,
+            client-side lyrics service requests, and metric logging.
+          </li>
+          <li className="list-item">
+            Collaborated with UX team and Product Managers to refine user
+            interface.
+          </li>
+          <li className="list-item">
+            Participated in daily team meetings discussing development updates.
+          </li>
+        </ul>
+      </>
+    ),
     technologies: ["Android", "Java", "Agile Development"],
     imagesUrls: [
       "https://placehold.co/500.png",
@@ -354,7 +428,9 @@ export default function Home() {
               <Reveal delay={1} animate={["y"]}>
                 <Button
                   variant="outline"
-                  className="sm:px-5 text-sm sm:text-sm w-full sm:w-fit mt-4"
+                  className="block sm:px-5 text-sm sm:text-sm w-full sm:w-fit mt-4"
+                  as="Link"
+                  href="#contact"
                 >
                   Let's work together!
                 </Button>
@@ -364,6 +440,7 @@ export default function Home() {
         </section>
 
         <section
+          id="about"
           data-name="about:container"
           className="w-full bg-neutral-950 flex justify-center items-center border-y border-neutral-800 sm:px-10 py-20 mb-24 min-h-svh"
         >
@@ -453,6 +530,7 @@ export default function Home() {
         </Section>
 
         <section
+          id="contact"
           data-name="contact"
           className="w-full bg-neutral-950 flex items-center justify-center h-svh border-y border-neutral-800 px-10"
         >
@@ -554,7 +632,7 @@ function Footer() {
         variant="text-dark"
         className="text-xs sm:text-sm flex items-center gap-2"
         as="Link"
-        href=""
+        href="https://github.com/alieskandari/personal-website"
       >
         See the code on Github{" "}
         <FontAwesomeIcon icon={faGithub} className="size-4 sm:size-6" />
