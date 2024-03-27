@@ -142,7 +142,7 @@ const WorkProjects: Project[] = [
   {
     name: "Dojo Apps",
     dates: "2021 - 2022",
-    position: "Lead Full-Stack Engineer",
+    position: "Senior Full-Stack Engineer",
     location: "Los Angeles, CA",
 
     link: "",
