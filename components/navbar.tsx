@@ -18,7 +18,7 @@ export default function Navbar() {
           </Button>
           <Button
             as="Link"
-            href="/files/resume-3-26-24.pdf"
+            href="/resume.pdf"
             variant="text-dark"
             className="flex items-center justify-center rounded-l-none rounded-r-full h-10 w-full p-0 text-xs"
           >
