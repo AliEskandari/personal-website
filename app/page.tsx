@@ -458,7 +458,7 @@ export default function Home() {
                 className="flex flex-col gap-4 w-full px-0 py-8 sm:w-1/2 text-base sm:text-lg font-thin"
               >
                 <p className="">
-                  I'm a Full-Stack Engineer with 6+ years of experience building
+                  I'm a Full-Stack Engineer with 8+ years of experience building
                   scalable web apps and engaging user experiences. I'm
                   passionate about building products that make a difference in
                   people's lives. I'm a self-starter who loves to learn and is
@@ -470,7 +470,7 @@ export default function Home() {
                   solutions.
                 </p>
                 <p className="">
-                  I love listening to music, working out, and going on TikTok.
+                  I love listening to music, working out, and going on YouTube.
                   If I have time I like to mess around on a piano and try to
                   write a song.
                 </p>
